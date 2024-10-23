@@ -1,6 +1,6 @@
 # Nombre del juego (<- borrar y completar)
 
-El juego que queríamos proponer era un rhythm game (juego de ritmo), basado en el notITG, donde habrán diferentes niveles de dificultades.
+El juego que queríamos proponer era un rhythm game (juego de ritmo), basado en el notITG/DDR/GuitarHero, donde habrán diferentes niveles de dificultades.
 
 ## Equipo de desarrollo
 
