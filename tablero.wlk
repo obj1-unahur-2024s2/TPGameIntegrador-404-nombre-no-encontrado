@@ -15,6 +15,7 @@ object tablero{
     game.cellSize(16)
     game.title("Tablero")
     game.addVisual(BotonFlecha)
+    game.addVisual(flecha)
   }
 }
 
@@ -31,10 +32,14 @@ object BotonFlecha{
 }
 
 //flechitas que bajan (o suben, o se desplazan) a travez de la pantalla
-class Flecha{
-  var tipo //ídem BotonFlecha
-  var desplazamiento //hacia que direccion se mueve(?)
-  var property position
+object flecha{
+  var property position = game.at(0,24)
+  method image()="flecha-abajo.png"
+  method desplazarse(){
+    if (position.y() > -4){
+      game.schedule(200,{position = game.at(position.x(), position.y()-1) self.desplazarse()})
+    }
+  }
 }
 
 //estos serian los objectos que se encargan del puntaje en base a cuando apretaste
