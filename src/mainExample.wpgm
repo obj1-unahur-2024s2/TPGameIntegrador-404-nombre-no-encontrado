@@ -19,11 +19,13 @@ program PepitaGame {
 */
 
 program tab{
+	const bgm = game.sound("bgm.mp3")
+ 	bgm.shouldLoop(true)
+	bgm.volume(0.25)
+  	keyboard.s().onPressDo({})
 	tablero.inicializar()
-	const bgm = game.sound("Undertale OST： 042 - Thundersnail.mp3")
-	bgm.shouldLoop(true)
-	bgm.play()
 	game.start()
-	flecha.desplazarse()
-	keyboard.r().onPressDo({flecha.position(game.at(0,24))})
+	keyboard.q().onPressDo({bgm.play() flecha.desplazarse()})
+	keyboard.r().onPressDo({flecha.position(game.at(0,24)) bgm.stop()})
 }
+//

@@ -37,7 +37,7 @@ object flecha{
   method image()="flecha-abajo.png"
   method desplazarse(){
     if (position.y() > -4){
-      game.schedule(1000,{position = game.at(position.x(), position.y()-1) self.desplazarse()})
+      game.schedule(250,{position = position.down(1) self.desplazarse()})
     }
   }
 }
