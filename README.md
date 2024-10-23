@@ -1,18 +1,20 @@
 # Nombre del juego (<- borrar y completar)
 
+El juego que queríamos proponer era un rhyptm game, basado en el notITG, donde habrán diferentes niveles de dificultades.
+
 ## Equipo de desarrollo
 
-- Alguien
-- Persona
-- etc.
+- Aleman Rodríguez, Gabriel Marcelo
+- Almeida, Guido Edgardo
+- de la Rosa, Matias Ezequiel
+- García, Mayra Giselle
+- Giménez, Facundo Román
+- Vallejos, Valentin Ulises
 
 ## Capturas
 
-(agregar)
 
 ## Reglas de Juego / Instrucciones
-
-(Escribirlas)
 
 
 ## Otros
