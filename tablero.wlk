@@ -20,7 +20,7 @@ object tablero{
 
 //botones sobre los cuales las flechas/marcadores tienen que estar
 object BotonFlecha{
-  var tipo = "U"//arriba, abajo, etc.
+  var tipo = "arriba"//arriba, abajo, etc.
   //var tecla //aparentemente tanto "qwer" como "uiop" pueden estar todas presionadas a la vez, propongo usar esas y dar la opcion de redefinirlas por el jugador
   var property position = game.origin()
   var image = "flecha-"+ tipo +".png"
