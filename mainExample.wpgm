@@ -1,7 +1,7 @@
 import wollok.game.*
 
-import example.pepita
-
+import tablero.*
+/*
 program PepitaGame {
 	game.title("Pepita")
 	game.height(10)
@@ -14,5 +14,11 @@ program PepitaGame {
 
 	game.showAttributes(pepita) //Debug
 
+	game.start()
+}
+*/
+
+program tab{
+	tablero.inicializar()
 	game.start()
 }
