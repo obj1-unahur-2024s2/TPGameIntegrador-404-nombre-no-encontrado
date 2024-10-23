@@ -20,7 +20,10 @@ program PepitaGame {
 
 program tab{
 	tablero.inicializar()
+	const bgm = game.sound("Undertale OST： 042 - Thundersnail.mp3")
+	bgm.shouldLoop(true)
+	bgm.play()
 	game.start()
-	keyboard.q().onPressDo({console.println("Q presionada!") flecha.desplazarse()})
+	flecha.desplazarse()
 	keyboard.r().onPressDo({flecha.position(game.at(0,24))})
 }
