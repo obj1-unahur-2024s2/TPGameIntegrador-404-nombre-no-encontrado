@@ -1,14 +1,11 @@
 import tablero.*
 
-object contador {
-  
-}
+object puntaje {
+	var property valor = 0
+	method position() = game.at(1, 1)
+	
+	method text() = "Puntaje: "+valor
+	
+	method textColor() = "#FFFFFF"
 
-object pantallaPuntaje inherits PantallaConTexto {
-	method position() = game.center()
-	method text() = tablero.puntajes().toString()
-}
-
-class PantallaConTexto {
-	method textColor() = "977e9b"
 }

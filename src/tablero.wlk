@@ -9,7 +9,7 @@ import wollok.game.*
   implementado 
 */
 object tablero{
-	var property puntajes = 0
+	var property puntaje = 0
 
   method inicializar(){
     game.width(16)
@@ -20,7 +20,15 @@ object tablero{
     game.addVisual(flecha)
   }
 
-  method puntajes() = puntajes
+  method puntaje() = puntaje
+
+  method incrementarPuntaje() {
+		puntaje =+ 1
+	}
+
+  method reiniciarPuntaje() {
+		puntaje = 0
+	}
 
 }
 
