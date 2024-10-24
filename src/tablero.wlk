@@ -9,18 +9,23 @@ import wollok.game.*
   implementado 
 */
 object tablero{
+	var property puntajes = 0
+
   method inicializar(){
     game.width(16)
     game.height(24)
     game.cellSize(16)
     game.title("Tablero")
-    game.addVisual(BotonFlecha)
+    game.addVisual(botonFlecha)
     game.addVisual(flecha)
   }
+
+  method puntajes() = puntajes
+
 }
 
 //botones sobre los cuales las flechas/marcadores tienen que estar
-object BotonFlecha{
+object botonFlecha{
   var tipo = "arriba"//arriba, abajo, etc.
   //var tecla //aparentemente tanto "qwer" como "uiop" pueden estar todas presionadas a la vez, propongo usar esas y dar la opcion de redefinirlas por el jugador
   var property position = game.origin()
