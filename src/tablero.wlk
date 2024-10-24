@@ -1,4 +1,6 @@
 import wollok.game.*
+import contador.*
+import flechas.*
 //init del tablero
 /*
   la idea sería usar una grilla 3 o 4 (o más de ser necesario) veces más densa que los sprite de las flechas,
@@ -16,12 +18,24 @@ object tablero{
     game.height(24)
     game.cellSize(16)
     game.title("Tablero")
-    game.addVisual(botonFlecha)
-    game.addVisual(flecha)
+    const bgm = game.sound("bgm.mp3")
+ 	  bgm.shouldLoop(true)
+	  bgm.volume(0.25)
+    game.addVisual(new BotonFlecha(position=game.at(0,0),tipo="arriba",tecla="q"))
+    game.addVisual(new BotonFlecha(position=game.at(4,0),tipo="izquierda",tecla="w"))
+    game.addVisual(new BotonFlecha(position=game.at(8,0),tipo="abajo",tecla="e"))
+    game.addVisual(new BotonFlecha(position=game.at(12,0),tipo="derecha",tecla="r"))
+    keyboard.q().onPressDo({
+		  bgm.play()
+		})
+	  keyboard.r().onPressDo({
+      bgm.stop()
+    })
   }
 
   method puntaje() = puntaje
 
+  //de esto se van a encargar el DetectorPuntuacion, despeus hay que ver cuantos puntos daría cada uno, y/o cuantos se restan con cada error
   method incrementarPuntaje() {
 		puntaje =+ 1
 	}
@@ -30,29 +44,6 @@ object tablero{
 		puntaje = 0
 	}
 
-}
-
-//botones sobre los cuales las flechas/marcadores tienen que estar
-object botonFlecha{
-  var tipo = "arriba"//arriba, abajo, etc.
-  //var tecla //aparentemente tanto "qwer" como "uiop" pueden estar todas presionadas a la vez, propongo usar esas y dar la opcion de redefinirlas por el jugador
-  var property position = game.origin()
-  var image = "flecha-"+ tipo +".png"
-  method image() = image
-  method presionar(){
-    //Para Hacer: que cambie a la versión presionada pero que vuelva a la comun tras cierto tiempo
-  }
-}
-
-//flechitas que bajan (o suben, o se desplazan) a travez de la pantalla
-object flecha{
-  var property position = game.at(0,24)
-  method image()="flecha-abajo.png"
-  method desplazarse(){
-    if (position.y() > -4){
-      game.schedule(250,{position = position.down(1) self.desplazarse()})
-    }
-  }
 }
 
 //estos serian los objectos que se encargan del puntaje en base a cuando apretaste
