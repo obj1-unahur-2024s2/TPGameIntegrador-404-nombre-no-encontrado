@@ -17,12 +17,18 @@ class Flecha{
       game.schedule(250,{position = position.down(1) self.desplazarse()})
     }
   }
+
+  method resetearPosicion(){
+    position = game.at(position.x(),25)
+  }
+
+
 }
 
 //botones sobre los cuales las flechas/marcadores tienen que estar
 class BotonFlecha inherits Flecha{
   var tecla
-  method presionar(){ //no se por qué no funciona :c  -maty
+  method presionar(){ 
     keyboard.letter(tecla).onPressDo({
         presionada = true
         console.println("tecla " + tipo + " presionada!") //debug
@@ -35,7 +41,7 @@ class BotonFlecha inherits Flecha{
   override method desplazarse(){} //No hacer nada
 }
 
-object flecha{
+/*object flecha{
   var property position = game.at(0,24)
   method image()="flecha-abajo.png"
   method desplazarse(){
@@ -43,4 +49,4 @@ object flecha{
       game.schedule(250,{position = position.down(1) self.desplazarse()})
     }
   }
-}
+}*/

@@ -21,10 +21,6 @@ object tablero{
     const bgm = game.sound("bgm.mp3")
  	  bgm.shouldLoop(true)
 	  bgm.volume(0.25)
-    game.addVisual(new BotonFlecha(position=game.at(0,0),tipo="arriba",tecla="q"))
-    game.addVisual(new BotonFlecha(position=game.at(4,0),tipo="izquierda",tecla="w"))
-    game.addVisual(new BotonFlecha(position=game.at(8,0),tipo="abajo",tecla="e"))
-    game.addVisual(new BotonFlecha(position=game.at(12,0),tipo="derecha",tecla="r"))
     keyboard.q().onPressDo({
 		  bgm.play()
 		})
@@ -48,8 +44,11 @@ object tablero{
 
 //estos serian los objectos que se encargan del puntaje en base a cuando apretaste
 class DetectorPuntuacion{
-  var tipo //Perfecto, Excelente, Bien, Fallo
-  var puntaje //podria ser un método o algo creo
+  const property tipo //Perfecto, Excelente, Bien, Fallo
+  const puntaje
   var property position
 
+  method registrarPuntaje(){
+    puntaje.valor(puntaje.valor()+puntaje)
+  }
 }
