@@ -21,6 +21,8 @@ object puntaje {
 
 }
 
+//a lo mejor pueden ser una clase general de "sumarPuntuación" o algo asi?, con los puntos y posición como parámetro
+
 object perfecto {
   method puntos() = 100
 }

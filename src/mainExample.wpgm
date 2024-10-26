@@ -23,11 +23,11 @@ program PepitaGame {
 program tab{
 	tablero.inicializar()
 	var arriba = new BotonFlecha(position=game.at(0,0),tipo="arriba",tecla="q")
-	var flecha = new Flecha(position=game.at(0,25),tipo="arriba")
+	var flecha = new Flecha(position=game.at(0,16),tipo="arriba")
 	game.start()
 	game.addVisual(arriba)
 	game.addVisual(flecha)
-	flecha.desplazarse()
+	keyboard.up().onPressDo({flecha.desplazarse() console.println("detecta input")})
 	game.onTick(0,"test",{if(flecha.position().y() <= -3){flecha.resetearPosicion()}})
     /*game.addVisual(new BotonFlecha(position=game.at(4,0),tipo="izquierda",tecla="w"))
     game.addVisual(new BotonFlecha(position=game.at(8,0),tipo="abajo",tecla="e"))

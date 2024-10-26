@@ -1,6 +1,7 @@
 import wollok.game.*
 //Clase general de los objetos tipo flecha
 class Flecha{
+  const velocidad = 250
   var property position
   var property tipo
   var presionada = false
@@ -13,9 +14,20 @@ class Flecha{
   
   //método recursivo
   method desplazarse(){
+    console.println("ejecuta el método") //debug
+    game.onTick(velocidad, "moverFlecha",{
+      position = position.down(1)
+      console.println("HAY MOVIMIENTO!!!") //debug
+      if(position.y() <= -4){
+        game.removeTickEvent("moverFlecha")
+        console.println("flecha detenida") //debug
+      }
+    })
+    /*
     if (position.y() > -4){
       game.schedule(250,{position = position.down(1) self.desplazarse()})
     }
+    */
   }
 
   method resetearPosicion(){
