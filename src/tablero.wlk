@@ -41,14 +41,3 @@ object tablero{
 	}
 
 }
-
-//estos serian los objectos que se encargan del puntaje en base a cuando apretaste
-class DetectorPuntuacion{
-  const property tipo //Perfecto, Excelente, Bien, Fallo
-  const puntaje
-  var property position
-
-  method registrarPuntaje(){
-    puntaje.valor(puntaje.valor()+puntaje)
-  }
-}
