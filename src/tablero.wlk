@@ -21,16 +21,21 @@ object tablero{
     const mjBillieJean = game.sound("mj-billie-jean.mp3")
     mjBillieJean.volume(0.25)
     var contFlechas = 0
-    //APRETAR Q Y EMPIEZA EL JUEGO
-    keyboard.q().onPressDo({
+    //APRETAR enter Y EMPIEZA EL JUEGO
+    keyboard.enter().onPressDo({
       mjBillieJean.play()
       //botones que caen
-      game.onTick(480, "spawn flecha izq", {
+      game.onTick(480*2, "spawn flecha izq", {
         //console.println(contFlechas) //debug
         var flecha = new Flecha(position=game.at(0,24),tipo="izquierda",id=contFlechas)
         contFlechas += 1
         game.addVisual(flecha)
         flecha.desplazarse()
+        game.schedule(480,{
+        flecha = new Flecha(position=game.at(4,24),tipo="arriba",id=contFlechas)
+        contFlechas+= 1
+        game.addVisual(flecha)
+        flecha.desplazarse()})
       })
     })
 

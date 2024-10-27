@@ -1,7 +1,7 @@
 import wollok.game.*
 //Clase general de los objetos tipo flecha
 class Flecha{
-  const velocidad = 100
+  const velocidad = 96 //mas alto = mas lento
   var property id
   var property position
   var property tipo
@@ -56,16 +56,6 @@ class BotonFlecha {
         game.schedule(300, { imagenPresionada = "" })
     }
 }
-
-/*object flecha{
-  var property position = game.at(0,24)
-  method image()="flecha-abajo.png"
-  method desplazarse(){
-    if (position.y() > -4){
-      game.schedule(250,{position = position.down(1) self.desplazarse()})
-    }
-  }
-}*/
 
 /*
 keyboard.yecla.onPressDo(){

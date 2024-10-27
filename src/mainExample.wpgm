@@ -3,35 +3,9 @@ import wollok.game.*
 import tablero.*
 
 import flechas.*
-/*
-program PepitaGame {
-	game.title("Pepita")
-	game.height(10)
-	game.width(10)
-
-	// add assets in asset folder, for example, for the background
-  // game.boardGround("fondo2.jpg")
-
-	//
-
-	game.showAttributes(pepita) //Debug
-
-	game.start()
-}
-*/
 
 program tab{
 	tablero.inicializar()
-	/*var arriba = new BotonFlecha(position=game.at(0,0),tipo="arriba")
-	var flecha = new Flecha(position=game.at(0,16),tipo="arriba")
-	game.start()
-	game.addVisual(arriba)
-	game.addVisual(flecha)
-	keyboard.up().onPressDo({flecha.desplazarse() console.println("detecta input")})
-	game.onTick(0,"test",{if(flecha.position().y() <= -3){flecha.resetearPosicion()}})
-    game.addVisual(new BotonFlecha(position=game.at(4,0),tipo="izquierda",tecla="w"))
-    game.addVisual(new BotonFlecha(position=game.at(8,0),tipo="abajo",tecla="e"))
-    game.addVisual(new BotonFlecha(position=game.at(12,0),tipo="derecha",tecla="r"))*/
 	// Crear botones y asignar posición
     var botonArriba = new BotonFlecha(tipo = "arriba", position = game.at(4, 0))
     var botonAbajo = new BotonFlecha(tipo = "abajo", position = game.at(8, 0))
@@ -49,7 +23,14 @@ program tab{
     keyboard.s().onPressDo({ botonAbajo.presionarTecla() })
     keyboard.a().onPressDo({ botonIzquierda.presionarTecla() })
     keyboard.d().onPressDo({ botonDerecha.presionarTecla() })
+
+    //controles alternativos para prevenir "ghosting" ()
+    /*
+    keyboard.w().onPressDo({ botonArriba.presionarTecla() })
+    keyboard.e().onPressDo({ botonAbajo.presionarTecla() })
+    keyboard.q().onPressDo({ botonIzquierda.presionarTecla() })
+    keyboard.r().onPressDo({ botonDerecha.presionarTecla() })
+    */
 	
 	game.start()
 }
-//
