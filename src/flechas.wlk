@@ -2,6 +2,7 @@ import wollok.game.*
 //Clase general de los objetos tipo flecha
 class Flecha{
   const velocidad = 100
+  var property id
   var property position
   var property tipo
 
@@ -10,11 +11,12 @@ class Flecha{
 
   method desplazarse(){
     //console.println("ejecuta el método") //debug
-    game.onTick(velocidad, "moverFlecha",{
+    game.onTick(velocidad, id,{
       position = position.down(1)
       //console.println("HAY MOVIMIENTO!!!") //debug
       if(position.y() <= -4){
-        game.removeTickEvent("moverFlecha")
+        game.removeTickEvent(id)
+        game.removeVisual(self)
         //console.println("flecha detenida") //debug
       }
     })

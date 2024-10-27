@@ -20,13 +20,15 @@ object tablero{
     game.title("Tablero")
     const mjBillieJean = game.sound("mj-billie-jean.mp3")
     mjBillieJean.volume(0.25)
-
+    var contFlechas = 0
     //APRETAR Q Y EMPIEZA EL JUEGO
     keyboard.q().onPressDo({
       mjBillieJean.play()
       //botones que caen
-      game.onTick(3107, "spawn flecha izq", {
-        var flecha = new Flecha(position=game.at(0,24),tipo="izquierda")
+      game.onTick(480, "spawn flecha izq", {
+        console.println(contFlechas)
+        var flecha = new Flecha(position=game.at(0,24),tipo="izquierda",id=contFlechas)
+        contFlechas += 1
         game.addVisual(flecha)
         flecha.desplazarse()
       })
