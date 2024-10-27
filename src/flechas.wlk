@@ -4,15 +4,7 @@ class Flecha{
   const velocidad = 250
   var property position
   var property tipo
-  var presionada = false
-  method image(){
-    if (presionada){
-        return("flecha-"+tipo+"-presionada.png")
-    }
-    else return("flecha-"+tipo+".png")
-  }
-  
-  //método recursivo
+
   method desplazarse(){
     //console.println("ejecuta el método") //debug
     game.onTick(velocidad, "moverFlecha",{
@@ -69,3 +61,11 @@ class BotonFlecha {
     }
   }
 }*/
+
+/*
+keyboard.yecla.onPressDo(){
+si limite 1 <flecha.y < limite 2 { sumar vida}
+else if flecha < limite inferior { restar vida}
+}
+
+*/
