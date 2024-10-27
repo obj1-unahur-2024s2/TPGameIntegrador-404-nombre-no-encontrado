@@ -14,13 +14,13 @@ class Flecha{
   
   //método recursivo
   method desplazarse(){
-    console.println("ejecuta el método") //debug
+    //console.println("ejecuta el método") //debug
     game.onTick(velocidad, "moverFlecha",{
       position = position.down(1)
-      console.println("HAY MOVIMIENTO!!!") //debug
+      //console.println("HAY MOVIMIENTO!!!") //debug
       if(position.y() <= -4){
         game.removeTickEvent("moverFlecha")
-        console.println("flecha detenida") //debug
+        //console.println("flecha detenida") //debug
       }
     })
     /*
@@ -53,7 +53,7 @@ class BotonFlecha {
 
         // Cambiar la imagen a la versión en azul
         imagenPresionada = "-presionada"
-        console.println("presionaste la tecla")
+        //console.println("presionaste la tecla")
 
         // Volver a la imagen original después de un corto tiempo
         game.schedule(300, { imagenPresionada = "" })
