@@ -1,9 +1,12 @@
 import wollok.game.*
 //Clase general de los objetos tipo flecha
 class Flecha{
-  const velocidad = 250
+  const velocidad = 100
   var property position
   var property tipo
+
+    method image() = "flecha-"+tipo+".png"
+
 
   method desplazarse(){
     //console.println("ejecuta el método") //debug
