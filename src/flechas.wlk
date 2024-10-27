@@ -38,19 +38,26 @@ class Flecha{
 }
 
 //botones sobre los cuales las flechas/marcadores tienen que estar
-class BotonFlecha inherits Flecha{
-  var tecla
-  method presionar(){ 
-    keyboard.letter(tecla).onPressDo({
-        presionada = true
-        console.println("tecla " + tipo + " presionada!") //debug
-        game.schedule(1000,{presionada = false
-            console.println("tecla " + tipo + " vuelve a su estado original!") //debug
-        })
-    })
-  }
+class BotonFlecha {
+    var property tipo // Puede ser "arriba", "abajo", "izquierda", "derecha"
+    var property position // Posición del botón en el tablero
+    var property imagenPresionada = ""
+    //"flecha-" + tipo + ".png"
 
-  override method desplazarse(){} //No hacer nada
+    // Método para obtener la imagen según el tipo
+    method image() = "flecha-" + tipo + imagenPresionada + ".png"
+
+    // Método para manejar la acción de cambiar a la imagen en rojo cuando se presiona la tecla
+    method presionarTecla() {
+        //var imagenOriginal = self.image() // Guardar la imagen original
+
+        // Cambiar la imagen a la versión en azul
+        imagenPresionada = "-presionada"
+        console.println("presionaste la tecla")
+
+        // Volver a la imagen original después de un corto tiempo
+        game.schedule(300, { imagenPresionada = "" })
+    }
 }
 
 /*object flecha{
