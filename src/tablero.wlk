@@ -26,7 +26,7 @@ object tablero{
       mjBillieJean.play()
       //botones que caen
       game.onTick(480, "spawn flecha izq", {
-        console.println(contFlechas)
+        //console.println(contFlechas) //debug
         var flecha = new Flecha(position=game.at(0,24),tipo="izquierda",id=contFlechas)
         contFlechas += 1
         game.addVisual(flecha)

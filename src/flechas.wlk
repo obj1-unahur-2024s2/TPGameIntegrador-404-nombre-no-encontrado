@@ -42,7 +42,7 @@ class BotonFlecha {
     //"flecha-" + tipo + ".png"
 
     // Método para obtener la imagen según el tipo
-    method image() = "flecha-" + tipo + imagenPresionada + ".png"
+    method image() = "boton-flecha-" + tipo + imagenPresionada + ".png"
 
     // Método para manejar la acción de cambiar a la imagen en rojo cuando se presiona la tecla
     method presionarTecla() {
