@@ -4,6 +4,8 @@ import tablero.*
 
 import flechas.*
 
+import contador.*
+
 program tab{
 	tablero.inicializar()
 	// Crear botones y asignar posición
@@ -17,6 +19,8 @@ program tab{
     game.addVisual(botonAbajo)
     game.addVisual(botonIzquierda)
     game.addVisual(botonDerecha)
+
+    game.addVisual(puntaje)
 
     // Configurar teclas
     keyboard.w().onPressDo({ botonArriba.presionarTecla() })
