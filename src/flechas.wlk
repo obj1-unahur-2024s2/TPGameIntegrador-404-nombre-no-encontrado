@@ -1,5 +1,8 @@
 import wollok.game.*
+import contador.*
 //Clase general de los objetos tipo flecha
+const alturaBotones = 0 //cambiar por la coordenada Y de los botones 
+const margenDeError = 4 //altura en celdas del sprite + margen de error (0) (fallas si aprietas antes de que se superpongan las flechas)
 class Flecha{
   const velocidad = 96 //mas alto = mas lento
   var property id
@@ -20,24 +23,35 @@ class Flecha{
         //console.println("flecha detenida") //debug
       }
     })
-    /*
-    if (position.y() > -4){
-      game.schedule(250,{position = position.down(1) self.desplazarse()})
-    }
-    */
   }
 
   method resetearPosicion(){
     position = game.at(position.x(),25)
   }
 
-
+  method puntaje(){ //nombre temporal, buscar uno mejor
+    if(alturaBotones + margenDeError < position.y() or position.y() < alturaBotones){
+      //lógica de penalización, jugador.restarVida()?
+    }
+    else if(position.y() == alturaBotones){
+      perfecto.sumarPuntos()
+    }
+    else if(position.y() == alturaBotones+1 or position.y() == alturaBotones-1){
+      excelente.sumarPuntos()
+    }
+    else if(position.y() == alturaBotones+2 or position.y() == alturaBotones-2){
+      bien.sumarPuntos()
+    }
+    else if(position.y() == alturaBotones+3 or position.y() == alturaBotones-3){
+      ok.sumarPuntos()
+    }
+  }
 }
 
 //botones sobre los cuales las flechas/marcadores tienen que estar
 class BotonFlecha {
     var property tipo // Puede ser "arriba", "abajo", "izquierda", "derecha"
-    var property position // Posición del botón en el tablero
+    var property position
     var property imagenPresionada = ""
     //"flecha-" + tipo + ".png"
 
