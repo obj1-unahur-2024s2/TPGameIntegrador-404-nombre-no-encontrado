@@ -8,38 +8,6 @@ import contador.*
 
 program tab{
 	tablero.inicializar()
-	// Crear botones y asignar posición
-    var botonArriba = new BotonFlecha(tipo = "arriba", position = game.at(4, 0))
-    var botonAbajo = new BotonFlecha(tipo = "abajo", position = game.at(8, 0))
-    var botonIzquierda = new BotonFlecha(tipo = "izquierda", position = game.at(0, 0))
-    var botonDerecha = new BotonFlecha(tipo = "derecha", position = game.at(12, 0))
-    //var barraDeVida = new BarraDeVida(position = game.at(0,15), division = 50)
-
-
-    // Añadir los botones al juego
-    game.addVisual(botonArriba)
-    game.addVisual(botonAbajo)
-    game.addVisual(botonIzquierda)
-    game.addVisual(botonDerecha)
-    //game.addVisual(barraDeVida)
-
-    game.addVisual(puntaje)
-
-    // Configurar teclas
-    keyboard.w().onPressDo({ botonArriba.presionarTecla() })
-    keyboard.s().onPressDo({ botonAbajo.presionarTecla() })
-    keyboard.a().onPressDo({ botonIzquierda.presionarTecla() })
-    keyboard.d().onPressDo({ botonDerecha.presionarTecla() })
-    //keyboard.m().onPressDo({protagonista.perderVida()})
-    //keyboard.n().onPressDo({protagonista.sumarVida()})
-
-    //controles alternativos para prevenir "ghosting" ()
-    /*
-    keyboard.w().onPressDo({ botonArriba.presionarTecla() })
-    keyboard.e().onPressDo({ botonAbajo.presionarTecla() })
-    keyboard.q().onPressDo({ botonIzquierda.presionarTecla() })
-    keyboard.r().onPressDo({ botonDerecha.presionarTecla() })
-    */
-	
+    
 	game.start()
 }

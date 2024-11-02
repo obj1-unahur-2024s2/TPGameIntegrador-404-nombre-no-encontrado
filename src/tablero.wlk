@@ -18,12 +18,45 @@ object tablero{
     game.height(24)
     game.cellSize(16)
     game.title("Tablero")
+    game.boardGround("fondo1.jpg")
+    
+
+    // Añadir la pantalla de inicio al juego
+    game.addVisual(pantallaInicio)
+
     const mjBillieJean = game.sound("mj-billie-jean.mp3")
     mjBillieJean.volume(0.25)
     var contFlechas = 0
     //APRETAR enter Y EMPIEZA EL JUEGO
     keyboard.enter().onPressDo({
       mjBillieJean.play()
+      game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
+       // Crear botones y asignar posición
+      var botonArriba = new BotonFlecha(tipo = "arriba", position = game.at(4, 0))
+      var botonAbajo = new BotonFlecha(tipo = "abajo", position = game.at(8, 0))
+      var botonIzquierda = new BotonFlecha(tipo = "izquierda", position = game.at(0, 0))
+      var botonDerecha = new BotonFlecha(tipo = "derecha", position = game.at(12, 0))
+      //var barraDeVida = new BarraDeVida(position = game.at(0,15), division = 50)
+      // Añadir los botones al juego
+      game.addVisual(botonArriba)
+      game.addVisual(botonAbajo)
+      game.addVisual(botonIzquierda)
+      game.addVisual(botonDerecha)
+      //game.addVisual(barraDeVida)
+      // Configurar teclas
+      keyboard.w().onPressDo({ botonArriba.presionarTecla() })
+      keyboard.s().onPressDo({ botonAbajo.presionarTecla() })
+      keyboard.a().onPressDo({ botonIzquierda.presionarTecla() })
+      keyboard.d().onPressDo({ botonDerecha.presionarTecla() })
+
+      //game.addVisual(puntaje)
+
+      
+      //keyboard.m().onPressDo({protagonista.perderVida()})
+      //keyboard.n().onPressDo({protagonista.sumarVida()})
+
+      //controles alternativos para prevenir "ghosting" ()
+    
       //botones que caen
       game.onTick(480*2, "spawn flecha izq", {
         //console.println(contFlechas) //debug
@@ -38,7 +71,7 @@ object tablero{
         flecha.desplazarse()})
       })
     })
-
+    
     /*
     const bgm = game.sound("bgm.mp3")
  	  bgm.shouldLoop(true)
@@ -50,6 +83,8 @@ object tablero{
       bgm.stop()
     })
     */
+
+    
   }
 
   method puntaje() = puntaje
@@ -63,4 +98,9 @@ object tablero{
 		puntaje = 0
 	}
 
+  
+}
+object pantallaInicio {
+  method image() = "pantallaInicio.jpg"      // La imagen de inicio que cubrirá toda la pantalla
+  method position() = game.at(0, 0)  // Posición en la esquina superior izquierda
 }
