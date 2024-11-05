@@ -1,25 +1,33 @@
 class Jugador {
-  var property vida = 100
-
+  const barraDeVida
+  
   method perderVida() {
-	vida = vida - 10
+    barraDeVida.perderVida()
   }
 
   method sumarVida() {
-	vida = vida + 10
+    barraDeVida.sumarVida()
   }
 
   method controles(){}
 }
 
 class BarraDeVida{
-	const property jugador
+  var vida = 100
 	const division
   const position
 	method position() = position
 	
 	//method image() = "barraDeVida" + calculo.barra(jugador.vida(),division)  + ".png"
-  method image() = "baraDeVida"+jugador.vida()+".png"
+  method image() = "barraDeVida"+ vida +".png"
+
+  method perderVida() {
+	vida = 0.max(vida - 10)
+  }
+
+  method sumarVida() {
+	vida = 100.max(vida + 10)
+  }
 }
 /*
 object calculo{
