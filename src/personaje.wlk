@@ -14,7 +14,7 @@ class Jugador {
 
 class BarraDeVida{
   var vida = 100
-	const division
+	//const division
   const position
 	method position() = position
 	
