@@ -32,10 +32,10 @@ object tablero{
       mjBillieJean.play()
       game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
        // Crear botones y asignar posición
-      var botonArriba = new BotonFlecha(tipo = "arriba", position = game.at(4, 0))
-      var botonAbajo = new BotonFlecha(tipo = "abajo", position = game.at(8, 0))
-      var botonIzquierda = new BotonFlecha(tipo = "izquierda", position = game.at(0, 0))
-      var botonDerecha = new BotonFlecha(tipo = "derecha", position = game.at(12, 0))
+      const botonArriba = new BotonFlecha(tipo = "arriba", position = game.at(4, 0))
+      const botonAbajo = new BotonFlecha(tipo = "abajo", position = game.at(8, 0))
+      const botonIzquierda = new BotonFlecha(tipo = "izquierda", position = game.at(0, 0))
+      const botonDerecha = new BotonFlecha(tipo = "derecha", position = game.at(12, 0))
       //var barraDeVida = new BarraDeVida(position = game.at(0,15), division = 50)
       // Añadir los botones al juego
       game.addVisual(botonArriba)
@@ -58,17 +58,30 @@ object tablero{
       //controles alternativos para prevenir "ghosting" ()
     
       //botones que caen
-      game.onTick(480*2, "spawn flecha izq", {
+      game.onTick(480*4, "spawn flecha izq", {
         //console.println(contFlechas) //debug
         var flecha = new Flecha(position=game.at(0,24),tipo="izquierda",id=contFlechas)
         contFlechas += 1
         game.addVisual(flecha)
         flecha.desplazarse()
+        game.schedule(240,{
+          flecha = new Flecha(position=game.at(4,24),tipo="arriba",id=contFlechas)
+          contFlechas +=1
+          game.addVisual(flecha)
+          flecha.desplazarse()
+        })
         game.schedule(480,{
-        flecha = new Flecha(position=game.at(4,24),tipo="arriba",id=contFlechas)
+          flecha = new Flecha(position=game.at(8,24),tipo="abajo",id=contFlechas)
+          contFlechas+= 1
+          game.addVisual(flecha)
+          flecha.desplazarse()
+        })
+        game.schedule(720,{
+        flecha = new Flecha(position=game.at(12,24),tipo="derecha",id=contFlechas)
         contFlechas+= 1
         game.addVisual(flecha)
-        flecha.desplazarse()})
+        flecha.desplazarse()
+        })
       })
     })
     
