@@ -60,24 +60,24 @@ object tablero{
       //botones que caen
       game.onTick(480*4, "spawn flecha izq", {
         //console.println(contFlechas) //debug
-        var flecha = new Flecha(position=game.at(0,24),tipo="izquierda",id=contFlechas)
+        var flecha = new Flecha(tipo=izquierda,id=contFlechas)
         contFlechas += 1
         game.addVisual(flecha)
         flecha.desplazarse()
         game.schedule(240,{
-          flecha = new Flecha(position=game.at(4,24),tipo="arriba",id=contFlechas)
+          flecha = new Flecha(tipo=arriba,id=contFlechas)
           contFlechas +=1
           game.addVisual(flecha)
           flecha.desplazarse()
         })
         game.schedule(480,{
-          flecha = new Flecha(position=game.at(8,24),tipo="abajo",id=contFlechas)
+          flecha = new Flecha(tipo=abajo,id=contFlechas)
           contFlechas+= 1
           game.addVisual(flecha)
           flecha.desplazarse()
         })
         game.schedule(720,{
-        flecha = new Flecha(position=game.at(12,24),tipo="derecha",id=contFlechas)
+        flecha = new Flecha(tipo=derecha,id=contFlechas)
         contFlechas+= 1
         game.addVisual(flecha)
         flecha.desplazarse()

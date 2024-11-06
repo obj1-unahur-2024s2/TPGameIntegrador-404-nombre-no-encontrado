@@ -8,8 +8,8 @@ object puntaje {
 
 	method position() = game.at(1, 24)
 	
-	method texto() = puntos.toString()
-	method textoColor() = color
+	method text() = puntos.toString()
+	method textColor() = color
 
 	method sumarPuntos(puntaje) {
 	  valor += puntaje

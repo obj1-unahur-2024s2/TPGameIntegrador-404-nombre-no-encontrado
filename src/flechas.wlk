@@ -1,3 +1,4 @@
+import personaje.*
 import wollok.game.*
 import contador.*
 //Clase general de los objetos tipo flecha
@@ -6,10 +7,10 @@ const margenDeError = 4 //altura en celdas del sprite + margen de error (0) (fal
 class Flecha{
   const velocidad = 96 //mas alto = mas lento
   var property id
-  var property position
+  var property position = tipo.position()
   var property tipo
 
-    method image() = "flecha-"+tipo+".png"
+    method image() = "flecha-"+ tipo.nombre() +".png"
 
 
   method desplazarse(){
@@ -26,24 +27,28 @@ class Flecha{
   }
 
   method resetearPosicion(){
-    position = game.at(position.x(),25)
+    position = position.up(25)
   }
 
   method puntaje(){ //nombre temporal, buscar uno mejor
     if(alturaBotones + margenDeError < position.y() or position.y() < alturaBotones){
-      //lógica de penalización, jugador.restarVida()?
+      BarraDeVida.perderVida()
     }
     else if(position.y() == alturaBotones){
       perfecto.sumarPuntos()
+      BarraDeVida.sumarVida()
     }
     else if(position.y() == alturaBotones+1 or position.y() == alturaBotones-1){
       excelente.sumarPuntos()
+      BarraDeVida.sumarVida()
     }
     else if(position.y() == alturaBotones+2 or position.y() == alturaBotones-2){
       bien.sumarPuntos()
+      BarraDeVida.sumarVida()
     }
     else if(position.y() == alturaBotones+3 or position.y() == alturaBotones-3){
       ok.sumarPuntos()
+      BarraDeVida.sumarVida()
     }
   }
 }
@@ -71,10 +76,20 @@ class BotonFlecha {
     }
 }
 
-/*
-keyboard.yecla.onPressDo(){
-si limite 1 <flecha.y < limite 2 { sumar vida}
-else if flecha < limite inferior { restar vida}
-}
 
-*/
+object izquierda{
+  var property position = game.at(0,10)
+  method nombre() = "izquierda"
+}
+object arriba{
+  method position() = izquierda.position().right(4)
+  method nombre() = "arriba"
+}
+object abajo{
+  method position() = arriba.position().right(4)
+  method nombre() = "derecha"
+}
+object derecha{
+  method position() = abajo.position().right(4)
+  method nombre() = "abajo"
+}
