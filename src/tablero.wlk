@@ -58,6 +58,7 @@ object tablero{
       //controles alternativos para prevenir "ghosting" ()
     
       //botones que caen
+      izquierda.position(game.at(0,25))
       game.onTick(480*4, "spawn flecha izq", {
         //console.println(contFlechas) //debug
         var flecha = new Flecha(tipo=izquierda,id=contFlechas)
