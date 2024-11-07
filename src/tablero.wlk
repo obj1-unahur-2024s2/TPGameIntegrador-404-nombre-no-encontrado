@@ -25,12 +25,9 @@ object tablero{
     // Añadir la pantalla de inicio al juego
     game.addVisual(pantallaInicio)
 
-    const mjBillieJean = game.sound("mj-billie-jean.mp3")
-    mjBillieJean.volume(0.25)
-    var contFlechas = 0
+    //var contFlechas = 0
     //APRETAR enter Y EMPIEZA EL JUEGO
     keyboard.enter().onPressDo({
-      mjBillieJean.play()
       game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
        // Crear botones y asignar posición
       const botonArriba = new BotonFlecha(tipo = "arriba", position = game.at(4, 0))
@@ -60,13 +57,8 @@ object tablero{
       flechasAbajo.lista().forEach({flecha => game.addVisual(flecha)})
       flechasDerecha.lista().forEach({flecha => game.addVisual(flecha)})
       
-      game.onTick(480*2, "spawnear flechas izq", {
-        //horrible la implementación, mala mía xd --Maty
-        flechasIzquierda.desplazarFlecha()
-        flechasArriba.desplazarFlecha()
-        flechasAbajo.desplazarFlecha()
-        flechasDerecha.desplazarFlecha()
-      })
+      self.bilieJean(flechasIzquierda,flechasArriba,flechasAbajo,flechasDerecha)
+      
       /*
       game.onTick(480*4, "spawn flecha izq", {
         //console.println(contFlechas) //debug
@@ -112,18 +104,23 @@ object tablero{
     
   }
 
-  method puntaje() = puntaje
-
-  //de esto se van a encargar el DetectorPuntuacion, despeus hay que ver cuantos puntos daría cada uno, y/o cuantos se restan con cada error
-  method incrementarPuntaje() {
-		puntaje =+ 1
-	}
-
-  method reiniciarPuntaje() {
-		puntaje = 0
-	}
-
-  
+  //posible implementacion de canciones, va a ser una banda --Maty
+  method bilieJean(izq,arr,abj,der){ 
+    const mjBillieJean = game.sound("mj-billie-jean.mp3")
+    mjBillieJean.volume(0.25) 
+    mjBillieJean.play()
+    game.schedule(1200,{ 
+      game.schedule(4150,{arr.desplazarFlecha()})
+      game.schedule(4340,{abj.desplazarFlecha()})
+      game.schedule(4680,{der.desplazarFlecha()})
+      game.schedule(4940,{arr.desplazarFlecha()})
+      game.schedule(5180,{izq.desplazarFlecha()})
+      game.schedule(5460,{der.desplazarFlecha()})
+      game.schedule(5700,{abj.desplazarFlecha()})
+      game.schedule(5960,{der.desplazarFlecha()})
+    })
+}
+    
 }
 object pantallaInicio {
   method image() = "pantallaInicio.jpg"      // La imagen de inicio que cubrirá toda la pantalla

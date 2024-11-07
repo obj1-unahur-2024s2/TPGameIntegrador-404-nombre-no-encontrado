@@ -5,7 +5,7 @@ import contador.*
 const alturaBotones = 0 //cambiar por la coordenada Y de los botones 
 const margenDeError = 4 //altura en celdas del sprite + margen de error (0) (fallas si aprietas antes de que se superpongan las flechas)
 class Flecha{
-  const velocidad = 96 //mas alto = mas lento
+  const velocidad = 75 //mas alto = mas lento
   var property id
   var property position = tipo.position()
   var property tipo
