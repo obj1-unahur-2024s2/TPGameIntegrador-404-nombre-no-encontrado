@@ -1,6 +1,8 @@
 import flechas.*
 
-class FlechasIzquierda{
+//estos podrían ser una sola clase, pero hgghhhhhh,,,,,,,, --Maty
+
+class FlechasIzquierda {
     const flecha1 = new Flecha(tipo = izquierda,id=1)
     const flecha2 = new Flecha(tipo = izquierda,id=2)
     const flecha3 = new Flecha(tipo = izquierda,id=3)
@@ -8,9 +10,15 @@ class FlechasIzquierda{
     const flecha5 = new Flecha(tipo = izquierda,id=5)
 
     const property lista = [flecha1,flecha2,flecha3,flecha4,flecha5]
+
+    method desplazarFlecha(){
+        lista.first().desplazarse()
+        lista.add(lista.first())
+        lista.remove(lista.first())
+    }
 }
 
-class FlechasArriba{
+class FlechasArriba {
     const flecha1 = new Flecha(tipo = arriba,id=6)
     const flecha2 = new Flecha(tipo = arriba,id=7)
     const flecha3 = new Flecha(tipo = arriba,id=8)
@@ -18,9 +26,15 @@ class FlechasArriba{
     const flecha5 = new Flecha(tipo = arriba,id=10)
 
     const property lista = [flecha1,flecha2,flecha3,flecha4,flecha5]
+
+    method desplazarFlecha(){
+        lista.first().desplazarse()
+        lista.add(lista.first())
+        lista.remove(lista.first())
+    }
 }
 
-class FlechasAbajo{
+class FlechasAbajo {
     const flecha1 = new Flecha(tipo = abajo,id=11)
     const flecha2 = new Flecha(tipo = abajo,id=12)
     const flecha3 = new Flecha(tipo = abajo,id=13)
@@ -28,9 +42,15 @@ class FlechasAbajo{
     const flecha5 = new Flecha(tipo = abajo,id=15)
 
     const property lista = [flecha1,flecha2,flecha3,flecha4,flecha5]
+
+    method desplazarFlecha(){
+        lista.first().desplazarse()
+        lista.add(lista.first())
+        lista.remove(lista.first())
+    }
 }
 
-class FlechasDerecha{
+class FlechasDerecha {
     const flecha1 = new Flecha(tipo = derecha,id=16)
     const flecha2 = new Flecha(tipo = derecha,id=17)
     const flecha3 = new Flecha(tipo = derecha,id=18)
@@ -38,8 +58,10 @@ class FlechasDerecha{
     const flecha5 = new Flecha(tipo = derecha,id=20)
 
     const property lista = [flecha1,flecha2,flecha3,flecha4,flecha5]
-}
 
-object testList{
-    const property lista = [1,2,3,4,5]
+    method desplazarFlecha(){
+        lista.first().desplazarse()
+        lista.add(lista.first())
+        lista.remove(lista.first())
+    }
 }
