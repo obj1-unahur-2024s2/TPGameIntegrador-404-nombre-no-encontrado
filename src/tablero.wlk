@@ -1,6 +1,7 @@
 import wollok.game.*
 import contador.*
 import flechas.*
+import listasDeFlechas.*
 //init del tablero
 /*
   la idea sería usar una grilla 3 o 4 (o más de ser necesario) veces más densa que los sprite de las flechas,
