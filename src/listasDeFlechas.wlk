@@ -39,3 +39,7 @@ class FlechasDerecha{
 
     const property lista = [flecha1,flecha2,flecha3,flecha4,flecha5]
 }
+
+object testList{
+    const property lista = [1,2,3,4,5]
+}

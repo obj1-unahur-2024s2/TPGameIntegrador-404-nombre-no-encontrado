@@ -50,16 +50,32 @@ object tablero{
       keyboard.a().onPressDo({ botonIzquierda.presionarTecla() })
       keyboard.d().onPressDo({ botonDerecha.presionarTecla() })
 
-      //game.addVisual(puntaje)
-
-      
-      //keyboard.m().onPressDo({protagonista.perderVida()})
-      //keyboard.n().onPressDo({protagonista.sumarVida()})
-
-      //controles alternativos para prevenir "ghosting" ()
-    
-      //botones que caen
       izquierda.position(game.at(0,25))
+      const flechasIzquierda = new FlechasIzquierda()
+      const flechasArriba = new FlechasArriba()
+      const flechasAbajo = new FlechasAbajo()
+      const flechasDerecha = new FlechasDerecha()
+      flechasIzquierda.lista().forEach({flecha => game.addVisual(flecha)})
+      flechasArriba.lista().forEach({flecha => game.addVisual(flecha)})
+      flechasAbajo.lista().forEach({flecha => game.addVisual(flecha)})
+      flechasDerecha.lista().forEach({flecha => game.addVisual(flecha)})
+      
+      game.onTick(480*2, "spawnear flechas izq", {
+        //horrible la implementación, mala mía xd --Maty
+        flechasIzquierda.lista().first().desplazarse()
+        flechasIzquierda.lista().add(flechasIzquierda.lista().first())
+        flechasIzquierda.lista().remove(flechasIzquierda.lista().first())
+        flechasArriba.lista().first().desplazarse()
+        flechasArriba.lista().add(flechasArriba.lista().first())
+        flechasArriba.lista().remove(flechasArriba.lista().first())
+        flechasAbajo.lista().first().desplazarse()
+        flechasAbajo.lista().add(flechasAbajo.lista().first())
+        flechasAbajo.lista().remove(flechasAbajo.lista().first())
+        flechasDerecha.lista().first().desplazarse()
+        flechasDerecha.lista().add(flechasDerecha.lista().first())
+        flechasDerecha.lista().remove(flechasDerecha.lista().first())
+      })
+      /*
       game.onTick(480*4, "spawn flecha izq", {
         //console.println(contFlechas) //debug
         var flecha = new Flecha(tipo=izquierda,id=contFlechas)
@@ -85,6 +101,8 @@ object tablero{
         flecha.desplazarse()
         })
       })
+      */
+
     })
     
     /*

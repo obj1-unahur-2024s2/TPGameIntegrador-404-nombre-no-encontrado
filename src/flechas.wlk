@@ -10,24 +10,22 @@ class Flecha{
   var property position = tipo.position()
   var property tipo
 
-    method image() = "flecha-"+ tipo.nombre() +".png"
+  method image() = "flecha-"+ tipo.nombre() +".png"
 
+  method estaEnElFondo() = position.y() <= -4
 
   method desplazarse(){
-    //console.println("ejecuta el método") //debug
     game.onTick(velocidad, id,{
       position = position.down(1)
-      //console.println("HAY MOVIMIENTO!!!") //debug
-      if(position.y() <= -4){
+      if(self.estaEnElFondo()){
         game.removeTickEvent(id)
-        game.removeVisual(self)
-        //console.println("flecha detenida") //debug
+        self.resetearPosicion()
       }
     })
   }
 
   method resetearPosicion(){
-    position = position.up(25)
+    position = game.at(position.x(),25)
   }
 
   method puntaje(){ //nombre temporal, buscar uno mejor
