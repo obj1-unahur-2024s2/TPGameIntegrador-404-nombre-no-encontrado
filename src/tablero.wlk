@@ -2,6 +2,7 @@ import wollok.game.*
 import contador.*
 import flechas.*
 import listasDeFlechas.*
+import personaje.*
 //init del tablero
 /*
   la idea sería usar una grilla 3 o 4 (o más de ser necesario) veces más densa que los sprite de las flechas,
@@ -12,14 +13,13 @@ import listasDeFlechas.*
   implementado 
 */
 object tablero{
-	var property puntaje = 0
 
   method inicializar(){
-    game.width(16)
-    game.height(24)
+    game.width(38)
+    game.height(40)
     game.cellSize(16)
     game.title("Tablero")
-    game.boardGround("fondo1.jpg")
+    game.boardGround("fondo-arcade.png")
     
 
     // Añadir la pantalla de inicio al juego
@@ -34,20 +34,22 @@ object tablero{
       const botonAbajo = new BotonFlecha(tipo = "abajo", position = game.at(8, 0))
       const botonIzquierda = new BotonFlecha(tipo = "izquierda", position = game.at(0, 0))
       const botonDerecha = new BotonFlecha(tipo = "derecha", position = game.at(12, 0))
-      //var barraDeVida = new BarraDeVida(position = game.at(0,15), division = 50)
+      var barraDeVida = new BarraDeVida(position = game.at(15,0))
       // Añadir los botones al juego
       game.addVisual(botonArriba)
       game.addVisual(botonAbajo)
       game.addVisual(botonIzquierda)
       game.addVisual(botonDerecha)
-      //game.addVisual(barraDeVida)
+      game.addVisual(barraDeVida)
+      game.addVisual(puntaje)
+
       // Configurar teclas
       keyboard.w().onPressDo({ botonArriba.presionarTecla() })
       keyboard.s().onPressDo({ botonAbajo.presionarTecla() })
       keyboard.a().onPressDo({ botonIzquierda.presionarTecla() })
       keyboard.d().onPressDo({ botonDerecha.presionarTecla() })
 
-      izquierda.position(game.at(0,25))
+      izquierda.position(game.at(0,35))
       const flechasIzquierda = new FlechasIzquierda()
       const flechasArriba = new FlechasArriba()
       const flechasAbajo = new FlechasAbajo()

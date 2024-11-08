@@ -14,11 +14,9 @@ class Jugador {
 
 class BarraDeVida{
   var vida = 100
-	//const division
   const position
 	method position() = position
 	
-	//method image() = "barraDeVida" + calculo.barra(jugador.vida(),division)  + ".png"
   method image() = "barraDeVida"+ vida +".png"
 
   method perderVida() {
@@ -29,9 +27,3 @@ class BarraDeVida{
 	vida = 100.max(vida + 10)
   }
 }
-/*
-object calculo{
-	
-	method barra(tipoBarra, division) = ((tipoBarra / division).truncate(0)*10 ).toString()
-}
-*/
