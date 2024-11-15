@@ -59,7 +59,7 @@ object tablero{
       flechasAbajo.lista().forEach({flecha => game.addVisual(flecha)})
       flechasDerecha.lista().forEach({flecha => game.addVisual(flecha)})
       
-      self.bilieJean(flechasIzquierda,flechasArriba,flechasAbajo,flechasDerecha)
+      self.flyMeToTheMoon(flechasIzquierda,flechasArriba,flechasAbajo,flechasDerecha)
       
       /*
       game.onTick(480*4, "spawn flecha izq", {
@@ -121,7 +121,37 @@ object tablero{
       game.schedule(5700,{abj.desplazarFlecha()})
       game.schedule(5960,{der.desplazarFlecha()})
     })
-}
+  }
+
+  method flyMeToTheMoon(izquierda,arriba,abajo,derecha){
+    const fsFlyMeToTheMoon = game.sound("Fly Me To The Moon.mp3")
+    const delay = 1200
+    fsFlyMeToTheMoon.volume(0.5)
+    fsFlyMeToTheMoon.play()
+    game.schedule(7800 + delay,{arriba.desplazarFlecha()})          //fly
+    game.schedule(8400 + delay,{derecha.desplazarFlecha()})         //me
+    game.schedule(8900 + delay,{izquierda.desplazarFlecha()})       //to
+    game.schedule(9300 + delay,{izquierda.desplazarFlecha()})       //the
+    game.schedule(9700 + delay,{abajo.desplazarFlecha()})           //moon
+
+    game.schedule(10800 + delay,{arriba.desplazarFlecha()})         //let
+    game.schedule(11100 + delay,{arriba.desplazarFlecha()})         //me
+    game.schedule(11700 + delay,{izquierda.desplazarFlecha()})      //play
+    game.schedule(13000 + delay,{abajo.desplazarFlecha()})          //among the
+    game.schedule(0000 + delay,{derecha.desplazarFlecha()})         //stars
+
+    game.schedule(15700 + delay,{arriba.desplazarFlecha()})         //let
+    game.schedule(16300 + delay,{derecha.desplazarFlecha()})        //me
+    game.schedule(16800 + delay,{izquierda.desplazarFlecha()})      //see
+    game.schedule(17300 + delay,{abajo.desplazarFlecha()})          //what
+    game.schedule(17700 + delay,{abajo.desplazarFlecha()})          //spring
+    game.schedule(18300 + delay,{izquierda.desplazarFlecha()})      //is
+    game.schedule(18700 + delay,{derecha.desplazarFlecha()})        //like
+    game.schedule(19200 + delay,{arriba.desplazarFlecha()})         //on
+    game.schedule(20600 + delay,{arriba.desplazarFlecha()})         //a ju-
+    game.schedule(21100 + delay,{derecha.desplazarFlecha()})        //-piter
+    game.schedule(21600 + delay,{abajo.desplazarFlecha()})          //and mars
+  }
     
 }
 object pantallaInicio {

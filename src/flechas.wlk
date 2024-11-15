@@ -18,35 +18,40 @@ class Flecha{
     game.onTick(velocidad, id,{
       position = position.down(1)
       if(self.estaEnElFondo()){
-        game.removeTickEvent(id)
         self.resetearPosicion()
       }
     })
   }
 
   method resetearPosicion(){
-    position = game.at(position.x(),25)
+    game.removeTickEvent(id)
+    position = game.at(position.x(),game.height() + 1)
   }
 
   method puntaje(){ //nombre temporal, buscar uno mejor
     if(alturaBotones + margenDeError < position.y() or position.y() < alturaBotones){
       BarraDeVida.perderVida()
+      self.resetearPosicion()
     }
     else if(position.y() == alturaBotones){
       perfecto.sumarPuntos()
       BarraDeVida.sumarVida()
+      self.resetearPosicion()
     }
     else if(position.y() == alturaBotones+1 or position.y() == alturaBotones-1){
       excelente.sumarPuntos()
       BarraDeVida.sumarVida()
+      self.resetearPosicion()
     }
     else if(position.y() == alturaBotones+2 or position.y() == alturaBotones-2){
       bien.sumarPuntos()
       BarraDeVida.sumarVida()
+      self.resetearPosicion()
     }
     else if(position.y() == alturaBotones+3 or position.y() == alturaBotones-3){
       ok.sumarPuntos()
       BarraDeVida.sumarVida()
+      self.resetearPosicion()
     }
   }
 }
@@ -76,7 +81,7 @@ class BotonFlecha {
 
 
 object izquierda{
-  var property position = game.at(0,10)
+  var property position = game.at(0,game.height()+1)
   method nombre() = "izquierda"
 }
 object arriba{
@@ -89,5 +94,5 @@ object abajo{
 }
 object derecha{
   method position() = abajo.position().right(4)
-  method nombre() = "abajo"
+  method nombre() = "derecha"
 }
