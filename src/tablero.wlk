@@ -155,6 +155,6 @@ object tablero{
     
 }
 object pantallaInicio {
-  method image() = "pantallaInicio.jpg"      // La imagen de inicio que cubrirá toda la pantalla
-  method position() = game.at(0, 0)  // Posición en la esquina superior izquierda
+  method image() = "portadaInicio.jpg"      // La imagen de inicio que cubrirá toda la pantalla
+  method position() = game.origin()  // Posición en la esquina superior izquierda
 }
