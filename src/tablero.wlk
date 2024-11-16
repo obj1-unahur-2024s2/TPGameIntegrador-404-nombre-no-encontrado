@@ -186,7 +186,7 @@ object tablero{
     game.schedule(51400 + delay,{arriba.desplazarFlecha()})       //i wor-
     game.schedule(52200 + delay,{derecha.desplazarFlecha()})       //-ship
     game.schedule(53000 + delay,{izquierda.desplazarFlecha()})       //and a-
-    game.schedule(53600 + delay,{<abajo.desplazarFlecha()})       //-dore
+    game.schedule(53600 + delay,{abajo.desplazarFlecha()})       //-dore
   }
     
 }
