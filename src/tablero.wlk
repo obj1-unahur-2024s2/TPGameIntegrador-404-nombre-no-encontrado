@@ -31,9 +31,9 @@ object tablero{
     keyboard.enter().onPressDo({
       game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
        // Crear botones y asignar posición
+      const botonIzquierda = new BotonFlecha(tipo = "izquierda", position = game.at(0, 0))
       const botonArriba = new BotonFlecha(tipo = "arriba", position = game.at(4, 0))
       const botonAbajo = new BotonFlecha(tipo = "abajo", position = game.at(8, 0))
-      const botonIzquierda = new BotonFlecha(tipo = "izquierda", position = game.at(0, 0))
       const botonDerecha = new BotonFlecha(tipo = "derecha", position = game.at(12, 0))
       var barraDeVida = new BarraDeVida(position = game.at(15,0))
       // Añadir los botones al juego
@@ -52,9 +52,13 @@ object tablero{
 
       izquierda.position(game.at(0,35))
       const flechasIzquierda = new FlechasIzquierda()
+      const detectoresIzquerda = new GrupoDetectores(flechas = flechasIzquierda)
       const flechasArriba = new FlechasArriba()
+      const detectoresArriba = new GrupoDetectores(flechas = flechasArriba)
       const flechasAbajo = new FlechasAbajo()
+      const detectoresAbajo = new GrupoDetectores(flechas = flechasAbajo)
       const flechasDerecha = new FlechasDerecha()
+      const detectoresDerecha = new GrupoDetectores(flechas = flechasDerecha)
       flechasIzquierda.lista().forEach({flecha => game.addVisual(flecha)})
       flechasArriba.lista().forEach({flecha => game.addVisual(flecha)})
       flechasAbajo.lista().forEach({flecha => game.addVisual(flecha)})

@@ -100,9 +100,24 @@ object derecha{
 class DetectorFlecha{
   const tipo //pasarle objeto de puntaje de contador.wlk
   const flechas //pasarle la lista de flechas de su columna
+  const position
   method image() = "transparente.png"
-  method position()
+  method position() = position
   method detectar(){
     flechas.forEach({flecha => game.onCollideDo(flecha,{tipo.sumarPuntaje() flecha.resetearPosicion()})}) //a falta de una forma mejor, chequea si alguna de las flechas lo colisiona, y si lo hace suma el puntaje y la resetea. despues en el game llamamos este método con un onPressDo()
+  }
+}
+
+class GrupoDetectores{
+  const flechas
+  const property detectores = []
+  method crearGrupo(){ //para hacer: parametrizar el eje X de la posición
+    const excelente = new DetectorFlecha(tipo = excelente, position = game.at(0,1), flechas = flechas)
+    const excelente2 = new DetectorFlecha(tipo = excelente, position = game.at(0,-1), flechas = flechas)
+    const bien = new DetectorFlecha(tipo = bien, position = game.at(0,2), flechas = flechas)
+    const bien2 = new DetectorFlecha(tipo = bien, position = game.at(0,-2), flechas = flechas)
+    const ok = new DetectorFlecha(tipo = ok, position = game.at(0,3), flechas = flechas)
+    const ok2 = new DetectorFlecha(tipo = ok, position = game.at(0,-3), flechas = flechas)
+    detectores.addAll([excelente,excelente2,bien,bien2,ok,ok2])
   }
 }
