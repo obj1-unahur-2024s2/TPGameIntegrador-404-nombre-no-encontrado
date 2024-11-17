@@ -96,3 +96,10 @@ object derecha{
   method position() = abajo.position().right(4)
   method nombre() = "derecha"
 }
+
+class DetectorFlecha{
+  const tipo //pasarle objeto de puntaje de contador.wlk
+  method image() = "transparente.png"
+  method position()
+  method detectar()
+}
