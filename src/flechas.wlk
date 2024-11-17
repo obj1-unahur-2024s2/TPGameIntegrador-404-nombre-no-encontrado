@@ -110,14 +110,15 @@ class DetectorFlecha{
 
 class GrupoDetectores{
   const flechas
+  const ejeX
   const property detectores = []
-  method crearGrupo(){ //para hacer: parametrizar el eje X de la posición
-    const excelente = new DetectorFlecha(tipo = excelente, position = game.at(0,1), flechas = flechas)
-    const excelente2 = new DetectorFlecha(tipo = excelente, position = game.at(0,-1), flechas = flechas)
-    const bien = new DetectorFlecha(tipo = bien, position = game.at(0,2), flechas = flechas)
-    const bien2 = new DetectorFlecha(tipo = bien, position = game.at(0,-2), flechas = flechas)
-    const ok = new DetectorFlecha(tipo = ok, position = game.at(0,3), flechas = flechas)
-    const ok2 = new DetectorFlecha(tipo = ok, position = game.at(0,-3), flechas = flechas)
+  method crearGrupo(){
+    const excelente = new DetectorFlecha(tipo = excelente, position = game.at(ejeX,1), flechas = flechas)
+    const excelente2 = new DetectorFlecha(tipo = excelente, position = game.at(ejeX,-1), flechas = flechas)
+    const bien = new DetectorFlecha(tipo = bien, position = game.at(ejeX,2), flechas = flechas)
+    const bien2 = new DetectorFlecha(tipo = bien, position = game.at(ejeX,-2), flechas = flechas)
+    const ok = new DetectorFlecha(tipo = ok, position = game.at(ejeX,3), flechas = flechas)
+    const ok2 = new DetectorFlecha(tipo = ok, position = game.at(ejeX,-3), flechas = flechas)
     detectores.addAll([excelente,excelente2,bien,bien2,ok,ok2])
   }
 }
