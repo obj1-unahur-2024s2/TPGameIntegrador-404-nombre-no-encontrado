@@ -104,7 +104,7 @@ class DetectorFlecha{
   method image() = "transparente.png"
   method position() = position
   method detectar(){
-    flechas.forEach({flecha => game.onCollideDo(flecha,{tipo.sumarPuntaje() flecha.resetearPosicion()})}) //a falta de una forma mejor, chequea si alguna de las flechas lo colisiona, y si lo hace suma el puntaje y la resetea. despues en el game llamamos este método con un onPressDo()
+    flechas.forEach({flecha => game.onCollideDo(flecha,{tipo.sumarPuntos() flecha.resetearPosicion()})}) //a falta de una forma mejor, chequea si alguna de las flechas lo colisiona, y si lo hace suma el puntaje y la resetea. despues en el game llamamos este método con un onPressDo()
   }
 }
 
