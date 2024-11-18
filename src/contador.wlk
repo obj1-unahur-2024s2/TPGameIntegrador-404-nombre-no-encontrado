@@ -5,7 +5,7 @@ object puntaje {
 	var property color = "color a decidir"
 	//var property dificultad = perfecto
 
-	method position() = game.at(23, 4)
+	method position() = game.at(25, 4)
 	
 	method text() = puntos.toString()
 	method textColor() = color
