@@ -101,6 +101,43 @@ object tablero{
       */
 
     })
+
+    keyboard.l().onPressDo({
+      game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
+       // Crear botones y asignar posición
+      const botonArriba = new BotonFlecha(tipo = "arriba", position = game.at(4, 0))
+      const botonAbajo = new BotonFlecha(tipo = "abajo", position = game.at(8, 0))
+      const botonIzquierda = new BotonFlecha(tipo = "izquierda", position = game.at(0, 0))
+      const botonDerecha = new BotonFlecha(tipo = "derecha", position = game.at(12, 0))
+      var barraDeVida = new BarraDeVida(position = game.at(15,0))
+      // Añadir los botones al juego
+      game.addVisual(botonArriba)
+      game.addVisual(botonAbajo)
+      game.addVisual(botonIzquierda)
+      game.addVisual(botonDerecha)
+      game.addVisual(barraDeVida)
+      game.addVisual(puntaje)
+
+      // Configurar teclas
+      keyboard.w().onPressDo({ botonArriba.presionarTecla() })
+      keyboard.s().onPressDo({ botonAbajo.presionarTecla() })
+      keyboard.a().onPressDo({ botonIzquierda.presionarTecla() })
+      keyboard.d().onPressDo({ botonDerecha.presionarTecla() })
+
+      izquierda.position(game.at(0,35))
+      const flechasIzquierda = new FlechasIzquierda()
+      const flechasArriba = new FlechasArriba()
+      const flechasAbajo = new FlechasAbajo()
+      const flechasDerecha = new FlechasDerecha()
+      flechasIzquierda.lista().forEach({flecha => game.addVisual(flecha)})
+      flechasArriba.lista().forEach({flecha => game.addVisual(flecha)})
+      flechasAbajo.lista().forEach({flecha => game.addVisual(flecha)})
+      flechasDerecha.lista().forEach({flecha => game.addVisual(flecha)})
+      
+      canciones.hipShop(flechasIzquierda,flechasArriba,flechasAbajo,flechasDerecha)
+      
+    
+    })
     
     /*
     const bgm = game.sound("bgm.mp3")

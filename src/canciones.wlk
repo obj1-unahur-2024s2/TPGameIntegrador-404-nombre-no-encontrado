@@ -90,4 +90,75 @@ object canciones{
       game.schedule(5960,{der.desplazarFlecha()})
     })
   }
+
+  //Siento que esta es un buen tutorial o Facil
+  //Intente separarlo por tiempos
+  method hipShop(izquierda,arriba,abajo,derecha) {
+      const fsHipShop = game.sound("Hip Shop")
+      const delay = 0
+      const listaDeFlechas = new Dictionary()
+      listaDeFlechas.put(2500 + delay,abajo)
+      listaDeFlechas.put(3400 + delay,derecha)
+      listaDeFlechas.put(3700 + delay,arriba)
+      listaDeFlechas.put(4200 + delay,derecha)
+      listaDeFlechas.put(4600 + delay,abajo)
+
+      listaDeFlechas.put(7100 + delay,izquierda)
+      listaDeFlechas.put(7300 + delay,abajo)
+      listaDeFlechas.put(7400 + delay,derecha)
+
+      listaDeFlechas.put(8300 + delay,izquierda)
+      listaDeFlechas.put(8700 + delay,abajo)
+      listaDeFlechas.put(9200 + delay,derecha)
+      listaDeFlechas.put(9600 + delay,abajo)
+
+      listaDeFlechas.put(12400 + delay,arriba)
+
+      listaDeFlechas.put(14500 + delay,izquierda)
+      listaDeFlechas.put(14700 + delay,arriba)
+      listaDeFlechas.put(14800 + delay,arriba)
+      listaDeFlechas.put(15300 + delay,derecha)
+      listaDeFlechas.put(15800 + delay,abajo)
+
+      listaDeFlechas.put(17300 + delay,izquierda)
+      listaDeFlechas.put(17800 + delay,izquierda)
+      listaDeFlechas.put(18200 + delay,abajo)
+      listaDeFlechas.put(18500 + delay,derecha)
+      listaDeFlechas.put(19000 + delay,derecha)
+      listaDeFlechas.put(19500 + delay,arriba)
+
+      listaDeFlechas.put(24400 + delay,arriba)
+      listaDeFlechas.put(24600 + delay,derecha)
+      listaDeFlechas.put(24700 + delay,arriba)
+      listaDeFlechas.put(25200 + delay,abajo)
+      listaDeFlechas.put(25700 + delay,abajo)
+
+      listaDeFlechas.put(27200 + delay,izquierda)
+      listaDeFlechas.put(27700 + delay,abajo)
+      listaDeFlechas.put(28100 + delay,izquierda)
+      listaDeFlechas.put(28400 + delay,derecha)
+      listaDeFlechas.put(28900 + delay,abajo)
+      listaDeFlechas.put(29400 + delay,arriba)
+
+      listaDeFlechas.put(34300 + delay,derecha)
+      listaDeFlechas.put(34500 + delay,arriba)
+      listaDeFlechas.put(34600 + delay,izquierda)
+
+      listaDeFlechas.put(35600 + delay,derecha)
+      listaDeFlechas.put(35900 + delay,izquierda)
+      listaDeFlechas.put(36300 + delay,arriba)
+      listaDeFlechas.put(36800 + delay,arriba)
+
+      listaDeFlechas.put(38000 + delay,izquierda)
+      listaDeFlechas.put(38200 + delay,derecha)
+      listaDeFlechas.put(38300 + delay,abajo)
+      listaDeFlechas.put(38800 + delay,abajo)
+
+      listaDeFlechas.put(39300 + delay,arriba)
+      
+      fsHipShop.volume(0.25)
+      fsHipShop.play()
+      listaDeFlechas.forEach({k,v => self.tirarFlecha(k, v)})
+
+    }
 }
