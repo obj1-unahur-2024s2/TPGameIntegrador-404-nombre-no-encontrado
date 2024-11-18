@@ -1,12 +1,14 @@
 // src/canciones.wlk
-object canciones{
-    method tirarFlecha(delay, flecha){
-        game.schedule(delay,{flecha.desplazarFlecha()})
+class Cancion{
+    method initialize()
+    const delay = 0
+    method tirarFlecha(pausa, flecha){
+        game.schedule(pausa,{flecha.desplazarFlecha()})
     }
-
-    method flyMeToTheMoon(izquierda,arriba,abajo,derecha){
+}
+object flyMeToTheMoon inherits Cancion{
+    method initialize(izquierda,arriba,abajo,derecha){
         const fsFlyMeToTheMoon = game.sound("Fly Me To The Moon.mp3")
-        const delay = 0
         const listaDeFlechas = new Dictionary()
         listaDeFlechas.put(7800 + delay,arriba)
         listaDeFlechas.put(7800 + delay,arriba)          //fly
@@ -73,9 +75,11 @@ object canciones{
         fsFlyMeToTheMoon.play()
         listaDeFlechas.forEach({k,v => self.tirarFlecha(k, v)})
   }
+}
 
+object billieJean inherits Cancion{
   //posible implementacion de canciones, va a ser una banda --Maty
-  method bilieJean(izq,arr,abj,der){ 
+  method initialize(izq,arr,abj,der){ 
     const mjBillieJean = game.sound("mj-billie-jean.mp3")
     mjBillieJean.volume(0.25) 
     mjBillieJean.play()
@@ -90,12 +94,13 @@ object canciones{
       game.schedule(5960,{der.desplazarFlecha()})
     })
   }
+}
 
+object hipShop inherits Cancion{
   //Siento que esta es un buen tutorial o Facil
   //Intente separarlo por tiempos
-  method hipShop(izquierda,arriba,abajo,derecha) {
+  method initialize(izquierda,arriba,abajo,derecha) {
       const fsHipShop = game.sound("Hip Shop")
-      const delay = 0
       const listaDeFlechas = new Dictionary()
       listaDeFlechas.put(2500 + delay,abajo)
       listaDeFlechas.put(3400 + delay,derecha)

@@ -27,55 +27,26 @@ class Flecha{
     game.removeTickEvent(id)
     position = game.at(position.x(),game.height() + 1)
   }
-
-  method puntaje(){ //nombre temporal, buscar uno mejor
-    if(alturaBotones + margenDeError < position.y() or position.y() < alturaBotones){
-      BarraDeVida.perderVida()
-      self.resetearPosicion()
-    }
-    else if(position.y() == alturaBotones){
-      perfecto.sumarPuntos()
-      BarraDeVida.sumarVida()
-      self.resetearPosicion()
-    }
-    else if(position.y() == alturaBotones+1 or position.y() == alturaBotones-1){
-      excelente.sumarPuntos()
-      BarraDeVida.sumarVida()
-      self.resetearPosicion()
-    }
-    else if(position.y() == alturaBotones+2 or position.y() == alturaBotones-2){
-      bien.sumarPuntos()
-      BarraDeVida.sumarVida()
-      self.resetearPosicion()
-    }
-    else if(position.y() == alturaBotones+3 or position.y() == alturaBotones-3){
-      ok.sumarPuntos()
-      BarraDeVida.sumarVida()
-      self.resetearPosicion()
-    }
-  }
 }
 
 //botones sobre los cuales las flechas/marcadores tienen que estar
 class BotonFlecha {
-    var property tipo // Puede ser "arriba", "abajo", "izquierda", "derecha"
-    var property position
-    var property imagenPresionada = ""
+    const property tipo
+    const property position = tipo.position()
+    var imagenPresionada = ""
     //"flecha-" + tipo + ".png"
 
     // Método para obtener la imagen según el tipo
-    method image() = "boton-flecha-" + tipo + imagenPresionada + ".png"
+    method image() = "boton-flecha-" + tipo.nombre() + imagenPresionada + ".png"
 
     // Método para manejar la acción de cambiar a la imagen en rojo cuando se presiona la tecla
     method presionarTecla() {
-        //var imagenOriginal = self.image() // Guardar la imagen original
-
         // Cambiar la imagen a la versión en azul
         imagenPresionada = "-presionada"
-        //console.println("presionaste la tecla")
 
         // Volver a la imagen original después de un corto tiempo
         game.schedule(300, { imagenPresionada = "" })
+
     }
 }
 
