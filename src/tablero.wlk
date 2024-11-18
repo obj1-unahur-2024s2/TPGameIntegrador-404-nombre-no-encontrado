@@ -46,7 +46,7 @@ object tablero{
 
     //configurar las flechas
     izquierda.position(game.at(0,40))
-    console.println(izquierda.position())
+    //console.println(izquierda.position())
     const flechasIzquierda = new FlechasIzquierda()
     const flechasArriba = new FlechasArriba()
     const flechasAbajo = new FlechasAbajo()
@@ -71,7 +71,7 @@ object tablero{
 
     // Crear botones y asignar posición
     izquierda.position(game.origin())
-    console.println(izquierda.position())
+    //console.println(izquierda.position())
     const botonIzquierda = new BotonFlecha(tipo = izquierda, flechas = flechasIzquierda)
     const botonArriba = new BotonFlecha(tipo = arriba, flechas = flechasArriba)
     const botonAbajo = new BotonFlecha(tipo = abajo, flechas = flechasAbajo)

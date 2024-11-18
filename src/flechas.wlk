@@ -8,7 +8,7 @@ class Flecha{
   const velocidad = 10 //mas alto = mas lento
   var property id
   var property tipo
-  var property position = tipo.position()
+  var property position
 
   method image() = "flecha-"+ tipo.nombre() +".png"
 
@@ -45,7 +45,7 @@ class BotonFlecha {
         // Cambiar la imagen a la versión en azul
         imagenPresionada = "-presionada"
         //registrar puntaje 
-        flechas.lista().forEach({flecha => game.onCollideDo(flecha,{perfecto.sumarPuntos() flecha.resetearPosicion()})})
+        //flechas.lista().forEach({flecha => game.onCollideDo(flecha,{perfecto.sumarPuntos() flecha.resetearPosicion()})})
         // Volver a la imagen original después de un corto tiempo
         game.schedule(300, { imagenPresionada = "" })
 

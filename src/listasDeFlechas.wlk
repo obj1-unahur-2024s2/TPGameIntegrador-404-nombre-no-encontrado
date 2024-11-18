@@ -3,11 +3,11 @@ import flechas.*
 //estos podrían ser una sola clase, pero hgghhhhhh,,,,,,,, --Maty
 
 class FlechasIzquierda {
-    const flecha1 = new Flecha(tipo = izquierda,id=1)
-    const flecha2 = new Flecha(tipo = izquierda,id=2)
-    const flecha3 = new Flecha(tipo = izquierda,id=3)
-    const flecha4 = new Flecha(tipo = izquierda,id=4)
-    const flecha5 = new Flecha(tipo = izquierda,id=5)
+    const flecha1 = new Flecha(tipo = izquierda,id=1, position = game.at(0, 36))
+    const flecha2 = new Flecha(tipo = izquierda,id=2, position = game.at(0, 36))
+    const flecha3 = new Flecha(tipo = izquierda,id=3, position = game.at(0, 36))
+    const flecha4 = new Flecha(tipo = izquierda,id=4, position = game.at(0, 36))
+    const flecha5 = new Flecha(tipo = izquierda,id=5, position = game.at(0, 36))
 
     const property lista = [flecha1,flecha2,flecha3,flecha4,flecha5]
 
@@ -19,11 +19,11 @@ class FlechasIzquierda {
 }
 
 class FlechasArriba {
-    const flecha1 = new Flecha(tipo = arriba,id=6)
-    const flecha2 = new Flecha(tipo = arriba,id=7)
-    const flecha3 = new Flecha(tipo = arriba,id=8)
-    const flecha4 = new Flecha(tipo = arriba,id=9)
-    const flecha5 = new Flecha(tipo = arriba,id=10)
+    const flecha1 = new Flecha(tipo = arriba,id=6, position = game.at(4, 36))
+    const flecha2 = new Flecha(tipo = arriba,id=7, position = game.at(4, 36))
+    const flecha3 = new Flecha(tipo = arriba,id=8, position = game.at(4, 36))
+    const flecha4 = new Flecha(tipo = arriba,id=9, position = game.at(4, 36))
+    const flecha5 = new Flecha(tipo = arriba,id=10, position = game.at(4, 36))
 
     const property lista = [flecha1,flecha2,flecha3,flecha4,flecha5]
 
@@ -35,11 +35,11 @@ class FlechasArriba {
 }
 
 class FlechasAbajo {
-    const flecha1 = new Flecha(tipo = abajo,id=11)
-    const flecha2 = new Flecha(tipo = abajo,id=12)
-    const flecha3 = new Flecha(tipo = abajo,id=13)
-    const flecha4 = new Flecha(tipo = abajo,id=14)
-    const flecha5 = new Flecha(tipo = abajo,id=15)
+    const flecha1 = new Flecha(tipo = abajo,id=11, position = game.at(8, 36))
+    const flecha2 = new Flecha(tipo = abajo,id=12, position = game.at(8, 36))
+    const flecha3 = new Flecha(tipo = abajo,id=13, position = game.at(8, 36))
+    const flecha4 = new Flecha(tipo = abajo,id=14, position = game.at(8, 36))
+    const flecha5 = new Flecha(tipo = abajo,id=15, position = game.at(8, 36))
 
     const property lista = [flecha1,flecha2,flecha3,flecha4,flecha5]
 
@@ -51,11 +51,11 @@ class FlechasAbajo {
 }
 
 class FlechasDerecha {
-    const flecha1 = new Flecha(tipo = derecha,id=16)
-    const flecha2 = new Flecha(tipo = derecha,id=17)
-    const flecha3 = new Flecha(tipo = derecha,id=18)
-    const flecha4 = new Flecha(tipo = derecha,id=19)
-    const flecha5 = new Flecha(tipo = derecha,id=20)
+    const flecha1 = new Flecha(tipo = derecha,id=16, position = game.at(12, 36))
+    const flecha2 = new Flecha(tipo = derecha,id=17, position = game.at(12, 36))
+    const flecha3 = new Flecha(tipo = derecha,id=18, position = game.at(12, 36))
+    const flecha4 = new Flecha(tipo = derecha,id=19, position = game.at(12, 36))
+    const flecha5 = new Flecha(tipo = derecha,id=20, position = game.at(12, 36))
 
     const property lista = [flecha1,flecha2,flecha3,flecha4,flecha5]
 
