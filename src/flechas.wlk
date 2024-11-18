@@ -112,7 +112,7 @@ class GrupoDetectores{
   const flechas
   const ejeX
   const property detectores = []
-  method initialize(){
+  method crearGrupo(){
     const excelente = new DetectorFlecha(tipo = excelente, position = game.at(ejeX,1), flechas = flechas)
     const excelente2 = new DetectorFlecha(tipo = excelente, position = game.at(ejeX,-1), flechas = flechas)
     const bien = new DetectorFlecha(tipo = bien, position = game.at(ejeX,2), flechas = flechas)

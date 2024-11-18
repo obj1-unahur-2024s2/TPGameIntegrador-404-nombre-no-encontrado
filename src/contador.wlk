@@ -31,7 +31,7 @@ object perfecto {
   method position() = game.at(16, 8)
   method aparecer() {
 	game.addVisual(self)
-	game.schedule(1000, {game.removeVisual(self)})
+	game.schedule(500, {game.removeVisual(self)})
   }
   method sumarPuntos(){
 	self.aparecer()
@@ -42,8 +42,14 @@ object perfecto {
 object excelente {
   //method puntos() = 80
   const puntos = 80
+  method image() = "cartel-excelente.png"
+  method position() = game.at(16, 8)
+  method aparecer() {
+	game.addVisual(self)
+	game.schedule(500, {game.removeVisual(self)})
+  }
   method sumarPuntos(){
-	
+	self.aparecer()
 	puntaje.sumarPuntos(puntos)
   }
 }
@@ -51,7 +57,14 @@ object excelente {
 object bien {
   //method puntos() = 60
   const puntos = 60
+  method image() = "cartel-bien.png"
+  method position() = game.at(16, 8)
+  method aparecer() {
+	game.addVisual(self)
+	game.schedule(500, {game.removeVisual(self)})
+  }
   method sumarPuntos(){
+	self.aparecer()
 	puntaje.sumarPuntos(puntos)
   }
 }
@@ -59,7 +72,14 @@ object bien {
 object ok {
   //method puntos() = 40
   const puntos = 40
+  method image() = "cartel-ok.png"
+  method position() = game.at(16, 8)
+  method aparecer() {
+	game.addVisual(self)
+	game.schedule(500, {game.removeVisual(self)})
+  }
   method sumarPuntos(){
+	self.aparecer()
 	puntaje.sumarPuntos(puntos)
   }
 }

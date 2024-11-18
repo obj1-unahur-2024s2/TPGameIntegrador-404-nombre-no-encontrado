@@ -50,6 +50,12 @@ object tablero{
       keyboard.a().onPressDo({ botonIzquierda.presionarTecla() })
       keyboard.d().onPressDo({ botonDerecha.presionarTecla() })
 
+      //apretar p para probar el efecto de los carteles de puntaje
+      keyboard.p().onPressDo({ perfecto.aparecer()})
+      keyboard.o().onPressDo({ excelente.aparecer()})
+      keyboard.i().onPressDo({ bien.aparecer()})
+      keyboard.u().onPressDo({ ok.aparecer()})
+
       izquierda.position(game.at(0,35))
       const flechasIzquierda = new FlechasIzquierda()
       const detectoresIzquerda = new GrupoDetectores(flechas = flechasIzquierda, ejeX = 0)
