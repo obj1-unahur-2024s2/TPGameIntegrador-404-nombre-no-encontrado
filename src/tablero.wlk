@@ -58,11 +58,39 @@ object tablero{
       game.addVisual(barraDeVida)
       game.addVisual(puntaje)
 
+      //configurar las flechas y detectores
+      izquierda.position(game.at(0,game.height()+1))
+      const flechasIzquierda = new FlechasIzquierda()
+      const detectoresIzquierda = new GrupoDetectores(flechas = flechasIzquierda, ejeX = 0)
+      const flechasArriba = new FlechasArriba()
+      const detectoresArriba = new GrupoDetectores(flechas = flechasArriba, ejeX = 4)
+      const flechasAbajo = new FlechasAbajo()
+      const detectoresAbajo = new GrupoDetectores(flechas = flechasAbajo, ejeX = 8)
+      const flechasDerecha = new FlechasDerecha()
+      const detectoresDerecha = new GrupoDetectores(flechas = flechasDerecha, ejeX = 12)
+      //añadir las flechas y detectores
+      flechasIzquierda.lista().forEach({flecha => game.addVisual(flecha)})
+      detectoresIzquierda.detectores().forEach({detector => game.addVisual(detector)})
+      flechasArriba.lista().forEach({flecha => game.addVisual(flecha)})
+      detectoresArriba.detectores().forEach({detector => game.addVisual(detector)})
+      flechasAbajo.lista().forEach({flecha => game.addVisual(flecha)})
+      detectoresAbajo.detectores().forEach({detector => game.addVisual(detector)})
+      flechasDerecha.lista().forEach({flecha => game.addVisual(flecha)})
+      detectoresDerecha.detectores().forEach({detector => game.addVisual(detector)})
+
       // Configurar teclas
-      keyboard.w().onPressDo({ botonArriba.presionarTecla() })
-      keyboard.s().onPressDo({ botonAbajo.presionarTecla() })
-      keyboard.a().onPressDo({ botonIzquierda.presionarTecla() })
-      keyboard.d().onPressDo({ botonDerecha.presionarTecla() })
+      keyboard.w().onPressDo({  botonArriba.presionarTecla()
+                                  detectoresArriba.detectores().forEach({detector => detector.detectar()})
+                                })
+      keyboard.s().onPressDo({  botonAbajo.presionarTecla()
+                                  detectoresAbajo.detectores().forEach({detector => detector.detectar()})
+                                })
+      keyboard.a().onPressDo({  botonIzquierda.presionarTecla()
+                                  detectoresIzquierda.detectores().forEach({detector => detector.detectar()})
+                                })
+      keyboard.d().onPressDo({  botonDerecha.presionarTecla()
+                                  detectoresDerecha.detectores().forEach({detector => detector.detectar()})
+                                })
 
       //DEBUG - apretar p para probar el efecto de los carteles de puntaje
       keyboard.p().onPressDo({ perfecto.aparecer()})
@@ -70,21 +98,7 @@ object tablero{
       keyboard.i().onPressDo({ bien.aparecer()})
       keyboard.u().onPressDo({ ok.aparecer()})
 
-      izquierda.position(game.at(0,game.height()+1))
-      const flechasIzquierda = new FlechasIzquierda()
-      const detectoresIzquerda = new GrupoDetectores(flechas = flechasIzquierda, ejeX = 0)
-      const flechasArriba = new FlechasArriba()
-      const detectoresArriba = new GrupoDetectores(flechas = flechasArriba, ejeX = 4)
-      const flechasAbajo = new FlechasAbajo()
-      const detectoresAbajo = new GrupoDetectores(flechas = flechasAbajo, ejeX = 8)
-      const flechasDerecha = new FlechasDerecha()
-      const detectoresDerecha = new GrupoDetectores(flechas = flechasDerecha, ejeX = 12)
-      flechasIzquierda.lista().forEach({flecha => game.addVisual(flecha)})
-      flechasArriba.lista().forEach({flecha => game.addVisual(flecha)})
-      flechasAbajo.lista().forEach({flecha => game.addVisual(flecha)})
-      flechasDerecha.lista().forEach({flecha => game.addVisual(flecha)})
-
-      cancion.initialize( flechasIzquierda,flechasArriba,flechasAbajo,flechasDerecha)
+      cancion.initialize(flechasIzquierda,flechasArriba,flechasAbajo,flechasDerecha)
   }
     
 }
