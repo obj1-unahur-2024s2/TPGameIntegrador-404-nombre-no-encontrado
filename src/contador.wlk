@@ -27,7 +27,14 @@ object puntaje {
 object perfecto {
   //method puntos() = 100
   const puntos = 100
+  method image() = "cartel-perfecto.png"
+  method position() = game.at(16, 8)
+  method aparecer() {
+	game.addVisual(self)
+	game.schedule(1000, {game.removeVisual(self)})
+  }
   method sumarPuntos(){
+	self.aparecer()
 	puntaje.sumarPuntos(puntos)
   }
 }
@@ -36,6 +43,7 @@ object excelente {
   //method puntos() = 80
   const puntos = 80
   method sumarPuntos(){
+	
 	puntaje.sumarPuntos(puntos)
   }
 }
