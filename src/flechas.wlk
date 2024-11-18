@@ -7,7 +7,7 @@ const margenDeError = 4 //altura en celdas del sprite + margen de error (0) (fal
 class Flecha{
   const velocidad = 10 //mas alto = mas lento
   var property id
-  var property position = tipo.position()
+  var property position
   var property tipo
 
   method image() = "flecha-"+ tipo.nombre() +".png"
@@ -45,7 +45,7 @@ class BotonFlecha {
         // Cambiar la imagen a la versión en azul
         imagenPresionada = "-presionada"
         //registrar puntaje 
-        flechas.forEach({flecha => game.onCollideDo(flecha,{perfecto.sumarPuntos() flecha.resetearPosicion()})})
+        flechas.lista().forEach({flecha => game.onCollideDo(flecha,{perfecto.sumarPuntos() flecha.resetearPosicion()})})
         // Volver a la imagen original después de un corto tiempo
         game.schedule(300, { imagenPresionada = "" })
 
@@ -54,7 +54,7 @@ class BotonFlecha {
 
 
 object izquierda{
-  var property position = game.at(0,game.height()+1)
+  var property position = game.at(0,41)
   method nombre() = "izquierda"
 }
 object arriba{
@@ -62,11 +62,11 @@ object arriba{
   method nombre() = "arriba"
 }
 object abajo{
-  method position() = arriba.position().right(4)
+  method position() = izquierda.position().right(8)
   method nombre() = "abajo"
 }
 object derecha{
-  method position() = abajo.position().right(4)
+  method position() = izquierda.position().right(12)
   method nombre() = "derecha"
 }
 
@@ -77,7 +77,7 @@ class DetectorFlecha{
   method image() = "transparente.png"
   method position() = position
   method detectar(){
-    flechas.forEach({flecha => game.onCollideDo(flecha,{tipo.sumarPuntos() flecha.resetearPosicion()})}) //a falta de una forma mejor, chequea si alguna de las flechas lo colisiona, y si lo hace suma el puntaje y la resetea. despues en el game llamamos este método con un onPressDo()
+    flechas.lista().forEach({flecha => game.onCollideDo(flecha,{tipo.sumarPuntos() flecha.resetearPosicion()})}) //a falta de una forma mejor, chequea si alguna de las flechas lo colisiona, y si lo hace suma el puntaje y la resetea. despues en el game llamamos este método con un onPressDo()
   }
 }
 
