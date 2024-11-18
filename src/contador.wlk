@@ -1,18 +1,17 @@
 import tablero.*
 
 object puntaje {
-	var valor = 0
-	var property puntos = valor
+	var property puntos = 0
 	var property color = "color a decidir"
 	//var property dificultad = perfecto
 
-	method position() = game.at(1, 24)
+	method position() = game.at(23, 4)
 	
 	method text() = puntos.toString()
 	method textColor() = color
 
 	method sumarPuntos(puntaje) {
-	  valor += puntaje
+	  puntos += puntaje
 	//valor += dificultad.puntos()
 	}
 
