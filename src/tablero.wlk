@@ -35,7 +35,7 @@ object tablero{
       const botonArriba = new BotonFlecha(tipo = "arriba", position = game.at(4, 0))
       const botonAbajo = new BotonFlecha(tipo = "abajo", position = game.at(8, 0))
       const botonDerecha = new BotonFlecha(tipo = "derecha", position = game.at(12, 0))
-      var barraDeVida = new BarraDeVida(position = game.at(15,0))
+      const barraDeVida = new BarraDeVida(position = game.at(15,0))
       // Añadir los botones al juego
       game.addVisual(botonArriba)
       game.addVisual(botonAbajo)
@@ -71,34 +71,6 @@ object tablero{
       flechasDerecha.lista().forEach({flecha => game.addVisual(flecha)})
       
       canciones.flyMeToTheMoon(flechasIzquierda,flechasArriba,flechasAbajo,flechasDerecha)
-      
-      /*
-      game.onTick(480*4, "spawn flecha izq", {
-        //console.println(contFlechas) //debug
-        var flecha = new Flecha(tipo=izquierda,id=contFlechas)
-        contFlechas += 1
-        game.addVisual(flecha)
-        flecha.desplazarse()
-        game.schedule(240,{
-          flecha = new Flecha(tipo=arriba,id=contFlechas)
-          contFlechas +=1
-          game.addVisual(flecha)
-          flecha.desplazarse()
-        })
-        game.schedule(480,{
-          flecha = new Flecha(tipo=abajo,id=contFlechas)
-          contFlechas+= 1
-          game.addVisual(flecha)
-          flecha.desplazarse()
-        })
-        game.schedule(720,{
-        flecha = new Flecha(tipo=derecha,id=contFlechas)
-        contFlechas+= 1
-        game.addVisual(flecha)
-        flecha.desplazarse()
-        })
-      })
-      */
 
     })
 
@@ -109,7 +81,7 @@ object tablero{
       const botonAbajo = new BotonFlecha(tipo = "abajo", position = game.at(8, 0))
       const botonIzquierda = new BotonFlecha(tipo = "izquierda", position = game.at(0, 0))
       const botonDerecha = new BotonFlecha(tipo = "derecha", position = game.at(12, 0))
-      var barraDeVida = new BarraDeVida(position = game.at(15,0))
+      const barraDeVida = new BarraDeVida(position = game.at(15,0))
       // Añadir los botones al juego
       game.addVisual(botonArriba)
       game.addVisual(botonAbajo)
@@ -138,19 +110,6 @@ object tablero{
       
     
     })
-    
-    /*
-    const bgm = game.sound("bgm.mp3")
- 	  bgm.shouldLoop(true)
-	  bgm.volume(0.25)
-    keyboard.q().onPressDo({
-		  bgm.play()
-		})
-	  keyboard.r().onPressDo({
-      bgm.stop()
-    })
-    */
-
     
   }
     
