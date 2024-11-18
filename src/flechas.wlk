@@ -7,8 +7,8 @@ const margenDeError = 4 //altura en celdas del sprite + margen de error (0) (fal
 class Flecha{
   const velocidad = 10 //mas alto = mas lento
   var property id
-  var property position
   var property tipo
+  var property position = tipo.position()
 
   method image() = "flecha-"+ tipo.nombre() +".png"
 
