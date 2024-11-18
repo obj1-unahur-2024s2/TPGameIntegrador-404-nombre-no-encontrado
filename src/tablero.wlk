@@ -43,22 +43,8 @@ object tablero{
   }
 
   method inicializarFlechas(cancion){
-    // Crear botones y asignar posición
-      izquierda.position(game.origin())
-      const botonIzquierda = new BotonFlecha(tipo = izquierda)
-      const botonArriba = new BotonFlecha(tipo = arriba)
-      const botonAbajo = new BotonFlecha(tipo = abajo)
-      const botonDerecha = new BotonFlecha(tipo = derecha)
-      const barraDeVida = new BarraDeVida(position = game.at(15,0))
-      // Añadir los botones al juego
-      game.addVisual(botonArriba)
-      game.addVisual(botonAbajo)
-      game.addVisual(botonIzquierda)
-      game.addVisual(botonDerecha)
-      game.addVisual(barraDeVida)
-      game.addVisual(puntaje)
 
-      //configurar las flechas y detectores
+          //configurar las flechas y detectores
       izquierda.position(game.at(0,game.height()+1))
       const flechasIzquierda = new FlechasIzquierda()
       const detectoresIzquierda = new GrupoDetectores(flechas = flechasIzquierda, ejeX = 0)
@@ -68,6 +54,21 @@ object tablero{
       const detectoresAbajo = new GrupoDetectores(flechas = flechasAbajo, ejeX = 8)
       const flechasDerecha = new FlechasDerecha()
       const detectoresDerecha = new GrupoDetectores(flechas = flechasDerecha, ejeX = 12)
+    // Crear botones y asignar posición
+      izquierda.position(game.origin())
+      const botonIzquierda = new BotonFlecha(tipo = izquierda, flechas = flechasIzquierda)
+      const botonArriba = new BotonFlecha(tipo = arriba, flechas = flechasArriba)
+      const botonAbajo = new BotonFlecha(tipo = abajo, flechas = flechasAbajo)
+      const botonDerecha = new BotonFlecha(tipo = derecha ,flechas = flechasDerecha)
+      const barraDeVida = new BarraDeVida(position = game.at(15,0))
+      // Añadir los botones al juego
+      game.addVisual(botonArriba)
+      game.addVisual(botonAbajo)
+      game.addVisual(botonIzquierda)
+      game.addVisual(botonDerecha)
+      game.addVisual(barraDeVida)
+      game.addVisual(puntaje)
+
       //añadir las flechas y detectores
       flechasIzquierda.lista().forEach({flecha => game.addVisual(flecha)})
       detectoresIzquierda.detectores().forEach({detector => game.addVisual(detector)})

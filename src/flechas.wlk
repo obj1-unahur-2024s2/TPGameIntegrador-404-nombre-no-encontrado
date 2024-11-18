@@ -33,6 +33,7 @@ class Flecha{
 class BotonFlecha {
     const property tipo
     const property position = tipo.position()
+    const flechas
     var imagenPresionada = ""
     //"flecha-" + tipo + ".png"
 
@@ -43,7 +44,8 @@ class BotonFlecha {
     method presionarTecla() {
         // Cambiar la imagen a la versión en azul
         imagenPresionada = "-presionada"
-
+        //registrar puntaje 
+        flechas.forEach({flecha => game.onCollideDo(flecha,{perfecto.sumarPuntos() flecha.resetearPosicion()})})
         // Volver a la imagen original después de un corto tiempo
         game.schedule(300, { imagenPresionada = "" })
 
@@ -74,7 +76,7 @@ class DetectorFlecha{
   const position
   method image() = "transparente.png"
   method position() = position
-  method detectar(){
+  method detectar(){ //ARREGLAR URGENTE ESTA LÓGICA, RESETEA TODAS LAS FLECHAS
     flechas.forEach({flecha => game.onCollideDo(flecha,{tipo.sumarPuntos() flecha.resetearPosicion()})}) //a falta de una forma mejor, chequea si alguna de las flechas lo colisiona, y si lo hace suma el puntaje y la resetea. despues en el game llamamos este método con un onPressDo()
   }
 }
