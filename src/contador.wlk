@@ -9,6 +9,18 @@ object puntaje {
 	
 	method text() = puntos.toString()
 	method textColor() = color
+  method asignarTipoDePuntaje(posicionDeFlecha) {
+    self.sumarPuntos(100-20*posicionDeFlecha)
+    if (posicionDeFlecha == 0) {
+      perfecto.aparecer()
+    } else if(posicionDeFlecha.abs() == 1) {
+      excelente.aparecer()
+    } else if(posicionDeFlecha.abs() == 2) {
+      bien.aparecer()
+    } else if(posicionDeFlecha.abs() == 3) {
+      ok.aparecer()
+    }
+  }
 
 	method sumarPuntos(puntaje) {
 	  puntos += puntaje
@@ -21,7 +33,6 @@ object puntaje {
 
 }
 
-//a lo mejor pueden ser una clase general de "sumarPuntuación" o algo asi?, con los puntos y posición como parámetro
 
 class TipoDePuntaje {
   const puntos

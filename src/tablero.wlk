@@ -72,10 +72,10 @@ object tablero{
     // Crear botones y asignar posición
     izquierda.position(game.origin())
     //console.println(izquierda.position())
-    const botonIzquierda = new BotonFlecha(tipo = izquierda, flechas = flechasIzquierda)
-    const botonArriba = new BotonFlecha(tipo = arriba, flechas = flechasArriba)
-    const botonAbajo = new BotonFlecha(tipo = abajo, flechas = flechasAbajo)
-    const botonDerecha = new BotonFlecha(tipo = derecha ,flechas = flechasDerecha)
+    const botonIzquierda = new BotonFlecha(tipo = izquierda, flechas = flechasIzquierda.lista())
+    const botonArriba = new BotonFlecha(tipo = arriba, flechas = flechasArriba.lista())
+    const botonAbajo = new BotonFlecha(tipo = abajo, flechas = flechasAbajo.lista())
+    const botonDerecha = new BotonFlecha(tipo = derecha ,flechas = flechasDerecha.lista())
     const barraDeVida = new BarraDeVida(position = game.at(15,0))
     // Añadir los botones al juego
     game.addVisual(botonArriba)

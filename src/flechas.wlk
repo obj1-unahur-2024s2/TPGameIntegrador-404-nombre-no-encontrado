@@ -34,8 +34,11 @@ class BotonFlecha {
     const property tipo
     const property position = tipo.position()
     const flechas
+
     var imagenPresionada = ""
     //"flecha-" + tipo + ".png"
+
+    var posicionDeFlechaDetectada = 0
 
     // Método para obtener la imagen según el tipo
     method image() = "boton-flecha-" + tipo.nombre() + imagenPresionada + ".png"
@@ -49,7 +52,25 @@ class BotonFlecha {
         // Volver a la imagen original después de un corto tiempo
         game.schedule(300, { imagenPresionada = "" })
 
+        self.detectarFlecha(flechas)
+
     }
+
+    method detectarFlecha(listaDeFlechas) {
+      console.println("intenté detectar flecha")
+      if (self.hayFlechaCerca(listaDeFlechas)) {
+        console.println("detectó flecha!")
+        posicionDeFlechaDetectada = listaDeFlechas.min({f => f.position().y()}).position().y()
+        console.println("posicion detectada: " + posicionDeFlechaDetectada)
+        puntaje.asignarTipoDePuntaje(posicionDeFlechaDetectada)
+        listaDeFlechas.min({f => f.position().y()}).resetearPosicion()
+      }
+    }
+
+    method hayFlechaCerca(listaDeFlechas) = listaDeFlechas.any({f => 
+        f.position().y().between(-3, 3)
+        
+      })
 }
 
 
@@ -70,6 +91,7 @@ object derecha{
   method nombre() = "derecha"
 }
 
+/*
 class DetectorFlecha{
   const tipo //pasarle objeto de puntaje de contador.wlk
   const flechas //pasarle la lista de flechas de su columna
@@ -95,3 +117,4 @@ class GrupoDetectores{
     detectores.addAll([excelente,excelente2,bien,bien2,ok,ok2])
   }
 }
+*/
