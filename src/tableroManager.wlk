@@ -10,10 +10,10 @@ class Pantalla{
 	const property position = game.origin()
 }
 
-const pantallaInicio = new Pantalla(image = "assets/portadaInicio.png")
-const modalidadesPantalla = new Pantalla(image = "assets/modalidadJuego.png")
-const derrotaPantalla = new Pantalla(image = "assets/pantallaPerdiste.png")
-const victoriaPantalla = new Pantalla(image = "assets/pantallaGanaste.png")
+const pantallaInicio = new Pantalla(image = "portadaInicio.jpg")
+const modalidadesPantalla = new Pantalla(image = "modalidadJuego.jpg")
+const derrotaPantalla = new Pantalla(image = "pantallaPerdiste.png")
+const victoriaPantalla = new Pantalla(image = "pantallaGanaste.png")
 
 object botonMenu {
 	
