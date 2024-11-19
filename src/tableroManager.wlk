@@ -15,6 +15,7 @@ const modalidadesPantalla = new Pantalla(image = "modalidadJuego.jpg")
 const derrotaPantalla = new Pantalla(image = "pantallaPerdiste.png")
 const victoriaPantalla = new Pantalla(image = "pantallaGanaste.png")
 
+
 class Modalidades {
 	var cancion
 

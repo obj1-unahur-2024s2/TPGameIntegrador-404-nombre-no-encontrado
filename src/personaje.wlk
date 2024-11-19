@@ -27,3 +27,10 @@ class BarraDeVida{
 	vida = 100.max(vida + 10)
   }
 }
+
+object tutorialPantalla {
+
+  method position() = game.at(15,0)
+
+  method image() = "tutorialPantalla.png"
+}
