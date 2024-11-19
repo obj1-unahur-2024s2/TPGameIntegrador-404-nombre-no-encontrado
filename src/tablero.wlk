@@ -4,6 +4,8 @@ import flechas.*
 import listasDeFlechas.*
 import canciones.*
 import personaje.*
+import tableroManager.*
+
 //init del tablero
 /*
   la idea sería usar una grilla 3 o 4 (o más de ser necesario) veces más densa que los sprite de las flechas,
@@ -29,11 +31,61 @@ object tablero{
     //var contFlechas = 0
     //APRETAR enter Y EMPIEZA EL JUEGO
     keyboard.enter().onPressDo({
+      botonMenu.play()
       game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
-      
+    
       self.inicializarFlechas(flyMeToTheMoon)
 
     })
+
+    /*
+    var modalidad 
+
+    method menuInicio(){
+      keyboard.enter().onPressDo({ botonMenu.play() game.removeVisual(pantallaInicio)})
+		  game.addVisual(modalidadesPantalla)
+      game.schedule (20,{musicaMenu.play()})
+    }
+
+    method menuReset() {		
+		  self.menuInicio()
+    }
+
+    method menuModalidades(){
+      keyboard.z().onPressDo{
+        botonMenu.play()
+			  modalidad = tutorial
+        game.removeVisual(modalidadesPantalla)
+        menuMusica.stop()
+		  }
+      keyboard.x().onPressDo{
+        botonMenu.play()
+			  modalidad = facil
+        game.removeVisual(modalidadesPantalla)
+        menuMusica.stop()
+		  }
+      keyboard.c().onPressDo{
+        botonMenu.play()
+			  modalidad = normal
+        game.removeVisual(modalidadesPantalla)
+        menuMusica.stop()
+		  }
+    }
+
+    method pantallaVictoria(){
+		  game.addVisual(pantallaGanaste)
+
+		  keyboard.4().onPressDo{botonMenu.play() self.inicializarFlechas(cancion)}
+		  keyboard.5().onPressDo{botonMenu.play() menu.reset()}
+    }
+
+    method pantallaDerrota(){
+		  game.addVisual(pantallaPerdiste)
+
+		  keyboard.4().onPressDo{botonMenu.play() self.inicializarFlechas(cancion)}
+		  keyboard.5().onPressDo{botonMenu.play() menu.reset()}
+    }
+    */
 
     keyboard.l().onPressDo({
       game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
@@ -108,8 +160,4 @@ object tablero{
     cancion.initialize(flechasIzquierda,flechasArriba,flechasAbajo,flechasDerecha)
   }
     
-}
-object pantallaInicio {
-  method image() = "portadaInicio.jpg"      // La imagen de inicio que cubrirá toda la pantalla
-  method position() = game.at(0,0)  // Posición en la esquina superior izquierda
 }
