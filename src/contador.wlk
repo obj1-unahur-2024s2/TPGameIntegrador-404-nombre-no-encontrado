@@ -2,13 +2,13 @@ import tablero.*
 
 object puntaje {
 	var property puntos = 0
-	var property color = "color a decidir"
+	var property textColor = "FFFFFF"
 	//var property dificultad = perfecto
 
 	method position() = game.at(25, 4)
 	
 	method text() = puntos.toString()
-	method textColor() = color
+	//method textColor() = color
   method asignarTipoDePuntaje(posicionDeFlecha) {
     self.sumarPuntos(100-20*posicionDeFlecha)
     if (posicionDeFlecha == 0) {
@@ -42,10 +42,10 @@ class TipoDePuntaje {
     game.addVisual(self)
     game.schedule(500, {game.removeVisual(self)})
   }
-  method sumarPuntos(){
-    self.aparecer()
-    puntaje.sumarPuntos(puntos)
-  }
+  //method sumarPuntos(){
+  //  self.aparecer()
+  //  puntaje.sumarPuntos(puntos)
+  //}
 }
 object perfecto inherits TipoDePuntaje(puntos = 100) {
   override method image() = "cartel-perfecto.png"
