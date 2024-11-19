@@ -21,71 +21,22 @@ object tablero{
     game.width(38)
     game.height(40)
     game.cellSize(16)
-    game.title("Tablero")
+    game.title("Melody Hero")
     game.boardGround("fondo-arcade.png")
     
-
-    // Añadir la pantalla de inicio al juego
-    game.addVisual(pantallaInicio)
+    game.schedule (20,{musicaMenu.play()}) //musica del menu
+    game.addVisual(pantallaInicio)    // Añadir la pantalla de inicio al juego
 
     //var contFlechas = 0
     //APRETAR enter Y EMPIEZA EL JUEGO
     keyboard.enter().onPressDo({
       botonMenu.play()
       game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
+      game.addVisual(modalidadesPantalla)
+      self.menuModalidades()
     
-      self.inicializarFlechas(flyMeToTheMoon)
-
+      //self.inicializarFlechas(flyMeToTheMoon)
     })
-
-    /*
-    var modalidad 
-
-    method menuInicio(){
-      keyboard.enter().onPressDo({ botonMenu.play() game.removeVisual(pantallaInicio)})
-		  game.addVisual(modalidadesPantalla)
-      game.schedule (20,{musicaMenu.play()})
-    }
-
-    method menuReset() {		
-		  self.menuInicio()
-    }
-
-    method menuModalidades(){
-      keyboard.z().onPressDo{
-        botonMenu.play()
-			  modalidad = tutorial
-        game.removeVisual(modalidadesPantalla)
-        menuMusica.stop()
-		  }
-      keyboard.x().onPressDo{
-        botonMenu.play()
-			  modalidad = facil
-        game.removeVisual(modalidadesPantalla)
-        menuMusica.stop()
-		  }
-      keyboard.c().onPressDo{
-        botonMenu.play()
-			  modalidad = normal
-        game.removeVisual(modalidadesPantalla)
-        menuMusica.stop()
-		  }
-    }
-
-    method pantallaVictoria(){
-		  game.addVisual(pantallaGanaste)
-
-		  keyboard.4().onPressDo{botonMenu.play() self.inicializarFlechas(cancion)}
-		  keyboard.5().onPressDo{botonMenu.play() menu.reset()}
-    }
-
-    method pantallaDerrota(){
-		  game.addVisual(pantallaPerdiste)
-
-		  keyboard.4().onPressDo{botonMenu.play() self.inicializarFlechas(cancion)}
-		  keyboard.5().onPressDo{botonMenu.play() menu.reset()}
-    }
-    */
 
     keyboard.l().onPressDo({
       game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
@@ -93,6 +44,32 @@ object tablero{
       self.inicializarFlechas(hipShop)
     }) 
   }
+
+  method menuReset() {		
+		  self.inicializar()
+  }
+
+  method menuModalidades(){
+
+      keyboard.z().onPressDo{
+        tutorial.configurar()
+        botonMenu.play()
+        game.removeVisual(modalidadesPantalla)
+        
+		  }
+      keyboard.x().onPressDo{
+        facil.configurar()
+        botonMenu.play()
+        game.removeVisual(modalidadesPantalla)
+        
+		  }
+      keyboard.c().onPressDo{
+        normal.configurar()
+        botonMenu.play()
+        game.removeVisual(modalidadesPantalla)
+        
+		  }
+    }
 
   method inicializarFlechas(cancion){
 
@@ -128,13 +105,13 @@ object tablero{
     const botonArriba = new BotonFlecha(tipo = arriba, flechas = flechasArriba.lista())
     const botonAbajo = new BotonFlecha(tipo = abajo, flechas = flechasAbajo.lista())
     const botonDerecha = new BotonFlecha(tipo = derecha ,flechas = flechasDerecha.lista())
-    const barraDeVida = new BarraDeVida(position = game.at(15,0))
+    //const barraDeVida = new BarraDeVida(position = game.at(15,0))
     // Añadir los botones al juego
     game.addVisual(botonArriba)
     game.addVisual(botonAbajo)
     game.addVisual(botonIzquierda)
     game.addVisual(botonDerecha)
-    game.addVisual(barraDeVida)
+    //game.addVisual(barraDeVida)
     game.addVisual(puntaje)
 
     // Configurar teclas

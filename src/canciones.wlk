@@ -100,7 +100,7 @@ object hipShop inherits Cancion{
   //Siento que esta es un buen tutorial o Facil
   //Intente separarlo por tiempos
   method initialize(izquierda,arriba,abajo,derecha) {
-      const fsHipShop = game.sound("Hip Shop")
+      const fsHipShop = game.sound("Hip Shop.mp3")
       const listaDeFlechas = new Dictionary()
       listaDeFlechas.put(2500 + delay,abajo)
       listaDeFlechas.put(3400 + delay,derecha)
