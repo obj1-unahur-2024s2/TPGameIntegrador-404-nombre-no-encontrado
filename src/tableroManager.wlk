@@ -44,7 +44,7 @@ class Modalidades {
 
 }
 
-object tutorial inherits Modalidades(cancion = billieJean){
+object tutorial inherits Modalidades(cancion = hipShop){
 
 	override method configurar(){
 		super() 
@@ -56,7 +56,7 @@ object tutorial inherits Modalidades(cancion = billieJean){
 	}
 }
 
-object facil inherits Modalidades(cancion = flyMeToTheMoon){
+object facil inherits Modalidades(cancion = myBestFriend){
 
 	override method configurar(){
 		super()
@@ -69,7 +69,7 @@ object facil inherits Modalidades(cancion = flyMeToTheMoon){
 	}
 }
 
-object normal inherits Modalidades(cancion = hipShop){
+object normal inherits Modalidades(cancion = theSoundOfSilence){
 
 	override method configurar(){
 		super() 
