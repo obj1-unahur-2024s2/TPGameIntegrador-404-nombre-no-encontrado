@@ -28,16 +28,16 @@ class Modalidades {
 		game.addVisual(victoriaPantalla)
 		musicaVictoria.play()
 
-		keyboard.r().onPressDo({botonMenu.play() tablero.inicializarFlechas(cancion)})
-		keyboard.m().onPressDo({botonMenu.play() tablero.menuReset()})
+		keyboard.r().onPressDo({botonMenu.play() tablero.inicializarFlechas(cancion) game.removeVisual(victoriaPantalla)})
+		keyboard.m().onPressDo({botonMenu.play() tablero.menuReset() game.removeVisual(victoriaPantalla)})
     }
 
 	method pantallaDerrota(){
 		  game.addVisual(derrotaPantalla)
 		  musicaDerrota.play()
 
-		  keyboard.r().onPressDo{botonMenu.play() tablero.inicializarFlechas(cancion)}
-		  keyboard.m().onPressDo{botonMenu.play() tablero.menuReset()}
+		  keyboard.r().onPressDo{botonMenu.play() tablero.inicializarFlechas(cancion) game.removeVisual(derrotaPantalla)}
+		  keyboard.m().onPressDo{botonMenu.play() tablero.menuReset() game.removeVisual(derrotaPantalla)}
     }
 
 	method agregarVisuales()
