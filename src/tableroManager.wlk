@@ -26,6 +26,7 @@ class Modalidades {
 
   	method pantallaVictoria(){
 		game.addVisual(victoriaPantalla)
+		musicaVictoria.play()
 
 		keyboard.r().onPressDo({botonMenu.play() tablero.inicializarFlechas(cancion)})
 		keyboard.m().onPressDo({botonMenu.play() tablero.menuReset()})
@@ -33,6 +34,7 @@ class Modalidades {
 
 	method pantallaDerrota(){
 		  game.addVisual(derrotaPantalla)
+		  musicaDerrota.play()
 
 		  keyboard.r().onPressDo{botonMenu.play() tablero.inicializarFlechas(cancion)}
 		  keyboard.m().onPressDo{botonMenu.play() tablero.menuReset()}
@@ -99,5 +101,17 @@ var musica = game.sound("menuMusica.mp3")
 	
 	method stop(){
 		musica.stop()
+	}
+}
+
+object musicaVictoria {
+	method play (){
+		game.sound("ganasteMusica.mp3").play()
+	}
+}
+
+object musicaDerrota {
+	method play (){
+		game.sound("perdisteMusica.mp3").play()
 	}
 }
