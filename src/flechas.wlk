@@ -18,6 +18,7 @@ class Flecha{
     game.onTick(velocidad, id,{
       position = position.down(1)
       if(self.estaEnElFondo()){
+        //barraDeVida.perderVida() //convertir la barra de vida en objeto en vez de clase y agregarle un checken el perder/ganar vida para ver si tiene un visual en el tablero
         self.resetearPosicion()
       }
     })
