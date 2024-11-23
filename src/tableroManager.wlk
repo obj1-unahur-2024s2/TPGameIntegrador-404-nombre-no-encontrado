@@ -22,6 +22,7 @@ class Modalidades {
 	method configurar() {
 		musicaMenu.stop()
 		self.agregarVisuales()
+		tablero.inicializarFlechas(cancion)
 	}
 
   	method pantallaVictoria(){
@@ -46,11 +47,6 @@ class Modalidades {
 
 object tutorial inherits Modalidades(cancion = hipShop){
 
-	override method configurar(){
-		super() 
-		tablero.inicializarFlechas(cancion)
-	}
-
 	override method agregarVisuales() {
 		game.addVisual(tutorialPantalla)
 	}
@@ -58,26 +54,14 @@ object tutorial inherits Modalidades(cancion = hipShop){
 
 object facil inherits Modalidades(cancion = myBestFriend){
 
-	override method configurar(){
-		super()
-		tablero.inicializarFlechas(cancion)
-	}
-
 	override method agregarVisuales() {
-		const barraDeVida = new BarraDeVida(position = game.at(15,0))
 		game.addVisual(barraDeVida)
 	}
 }
 
 object normal inherits Modalidades(cancion = theSoundOfSilence){
 
-	override method configurar(){
-		super() 
-		tablero.inicializarFlechas(cancion)
-	}
-
 	override method agregarVisuales() {
-		const barraDeVida = new BarraDeVida(position = game.at(15,0))
 		game.addVisual(barraDeVida)
 	}
 }

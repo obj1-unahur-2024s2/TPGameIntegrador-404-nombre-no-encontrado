@@ -12,19 +12,22 @@ class Jugador {
   method controles(){}
 }
 
-class BarraDeVida{
+object barraDeVida{
   var vida = 100
-  const position
-	method position() = position
+	method position() = game.at(15,0)
 	
   method image() = "barraDeVida"+ vida +".png"
 
   method perderVida() {
-	vida = 0.max(vida - 10)
+	  if (game.hasVisual(self)){ //verifica que la barra de vida esté en el tablero, si lo está, perder vida
+      vida = 0.max(vida - 10)
+    }
   }
 
   method sumarVida() {
-	vida = 100.max(vida + 10)
+    if (game.hasVisual(self)){ //verifica que la barra de vida esté en el tablero, si lo está, perder vida
+	    vida = 100.max(vida + 10)
+    }
   }
 }
 
