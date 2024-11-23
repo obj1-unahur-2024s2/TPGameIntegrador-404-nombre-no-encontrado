@@ -35,30 +35,26 @@ object puntaje {
 
 
 class TipoDePuntaje {
-  const puntos
+  //const puntos
   method image()
   method position() = game.at(16, 8)
   method aparecer() {
     game.addVisual(self)
     game.schedule(500, {game.removeVisual(self)})
   }
-  //method sumarPuntos(){
-  //  self.aparecer()
-  //  puntaje.sumarPuntos(puntos)
-  //}
 }
-object perfecto inherits TipoDePuntaje(puntos = 100) {
+object perfecto inherits TipoDePuntaje() {
   override method image() = "cartel-perfecto.png"
 }
 
-object excelente inherits TipoDePuntaje(puntos = 80) {
+object excelente inherits TipoDePuntaje() {
   override method image() = "cartel-excelente.png"
 }
 
-object bien inherits TipoDePuntaje(puntos = 60) {
+object bien inherits TipoDePuntaje() {
   override method image() = "cartel-bien.png"
 }
 
-object ok inherits TipoDePuntaje(puntos = 40) {
+object ok inherits TipoDePuntaje() {
   override method image() = "cartel-ok.png"
 }

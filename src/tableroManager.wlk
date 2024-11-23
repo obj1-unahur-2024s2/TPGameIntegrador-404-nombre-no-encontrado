@@ -17,7 +17,7 @@ const victoriaPantalla = new Pantalla(image = "pantallaGanaste.png")
 
 
 class Modalidades {
-	var cancion
+	const cancion
 
 	method configurar() {
 		musicaMenu.stop()
