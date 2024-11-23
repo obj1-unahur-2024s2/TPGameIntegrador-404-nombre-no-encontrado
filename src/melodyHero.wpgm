@@ -6,7 +6,7 @@ import flechas.*
 
 import contador.*
 
-program tab{
+program melodyHero{
 	tablero.inicializar()
     
 	game.start()
