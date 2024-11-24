@@ -5,75 +5,88 @@ class Cancion{
     method tirarFlecha(pausa, flecha){
         game.schedule(pausa,{flecha.desplazarFlecha()})
     }
+
+    method reproducir(lista, posicion){
+      if(posicion <= lista.size()){
+        var tiempo = lista[posicion][0]
+        var flecha = lista[posicion][1]
+        game.schedule(tiempo,{
+          flecha.desplazarFlecha()
+          self.reproducir(lista, posicion+1)
+        })
+      }
+      else{
+        //lógica de ganaste y esas cosas
+      }
+    }
 }
 object flyMeToTheMoon inherits Cancion{
     method initialize(izquierda,arriba,abajo,derecha){
         const fsFlyMeToTheMoon = game.sound("Fly Me To The Moon.mp3")
-        const listaDeFlechas = new Dictionary()
-        listaDeFlechas.put(7800 + delay,arriba)
-        listaDeFlechas.put(7800 + delay,arriba)          //fly
-        listaDeFlechas.put(8400 + delay,derecha)         //me
-        listaDeFlechas.put(8900 + delay,izquierda)       //to
-        listaDeFlechas.put(9300 + delay,izquierda)       //the
-        listaDeFlechas.put(9700 + delay,abajo)           //moon
+        const listaDeFlechas = [
+        [7800,arriba],          /*fly*/
+        [600,derecha],         //me
+        [500,izquierda],       //to
+        [400,izquierda],       //the
+        [400,abajo],           //moon
 
-        listaDeFlechas.put(10800 + delay,arriba)         //let
-        listaDeFlechas.put(11100 + delay,arriba)         //me
-        listaDeFlechas.put(11700 + delay,izquierda)      //play
-        listaDeFlechas.put(13000 + delay,abajo)          //among the
-        listaDeFlechas.put(13700 + delay,derecha)        //stars
+        [1100,arriba],         //let
+        [300,arriba],         //me
+        [600,izquierda],      //play
+        [1300,abajo],          //among the
+        [700,derecha],        //stars
 
-        listaDeFlechas.put(15700 + delay,arriba)         //let
-        listaDeFlechas.put(16300 + delay,derecha)        //me
-        listaDeFlechas.put(16800 + delay,izquierda)      //see
-        listaDeFlechas.put(17300 + delay,abajo)          //what
-        listaDeFlechas.put(17700 + delay,abajo)          //spring
-        listaDeFlechas.put(18300 + delay,izquierda)      //is
-        listaDeFlechas.put(18700 + delay,derecha)        //like
-        listaDeFlechas.put(19200 + delay,arriba)         //on
-        listaDeFlechas.put(20600 + delay,arriba)         //a ju-
-        listaDeFlechas.put(21100 + delay,derecha)        //-piter 
-        listaDeFlechas.put(21600 + delay,abajo)          //and mars
+        [2000,arriba],         //let
+        [600,derecha],        //me
+        [500,izquierda],      //see
+        [500,abajo],          //what
+        [400,abajo],          //spring
+        [600,izquierda],      //is
+        [4000,derecha],        //like
+        [500,arriba],         //on
+        [1400,arriba],         //a ju-
+        [500,derecha],        //-piter 
+        [500,abajo],          //and mars
 
-        listaDeFlechas.put(23600 + delay,izquierda)      //in other
-        listaDeFlechas.put(24100 + delay,derecha)        //words
+        [2000,izquierda],      //in other
+        [500,derecha],        //words
 
-        listaDeFlechas.put(26600 + delay,arriba)        //hold
-        listaDeFlechas.put(27600 + delay,izquierda)     //my
-        listaDeFlechas.put(28100 + delay,derecha)       //hand
+        [2500,arriba],        //hold
+        [1000,izquierda],     //my
+        [500,derecha],       //hand
 
-        listaDeFlechas.put(31100 + delay,abajo)          //in other
-        listaDeFlechas.put(32100 + delay,izquierda)      //words
+        [3000,abajo],          //in other
+        [1000,izquierda],      //words
 
-        listaDeFlechas.put(34700 + delay,arriba)         //ba-
-        listaDeFlechas.put(35200 + delay,derecha)       //-by
-        listaDeFlechas.put(35700 + delay,izquierda)       //kiss
-        listaDeFlechas.put(36100 + delay,izquierda)       //me
+        [2600,arriba],         //ba-
+        [500,derecha],       //-by
+        [500,izquierda],       //kiss
+        [400,izquierda],       //me
 
-        listaDeFlechas.put(39800 + delay,arriba)       //fill
-        listaDeFlechas.put(40300 + delay,derecha)       //my
-        listaDeFlechas.put(40900 + delay,derecha)       //heart with
-        listaDeFlechas.put(41500 + delay,abajo)       //song
-        listaDeFlechas.put(42300 + delay,izquierda)       //and
-        listaDeFlechas.put(42800 + delay,arriba)       //let me
-        listaDeFlechas.put(43600 + delay,derecha)       //sing
-        listaDeFlechas.put(44400 + delay,izquierda)       //forever
-        listaDeFlechas.put(45500 + delay,abajo)       //more
+        [3700,arriba],       //fill
+        [500,derecha],       //my
+        [600,derecha],       //heart with
+        [600,abajo],       //song
+        [800,izquierda],       //and
+        [500,arriba],       //let me
+        [800,derecha],       //sing
+        [800,izquierda],       //forever
+        [1100,abajo],       //more
 
-        listaDeFlechas.put(47600 + delay,izquierda)       //you
-        listaDeFlechas.put(48700 + delay,derecha)       //are
-        listaDeFlechas.put(49100 + delay,derecha)       //all i
-        listaDeFlechas.put(49700 + delay,abajo)       //long
-        listaDeFlechas.put(50100 + delay,derecha)       //for
-        listaDeFlechas.put(50800 + delay,izquierda)       //all
-        listaDeFlechas.put(51400 + delay,arriba)       //i wor-
-        listaDeFlechas.put(52200 + delay,derecha)       //-ship
-        listaDeFlechas.put(53000 + delay,izquierda)       //and a-
-        listaDeFlechas.put(53600 + delay,abajo)       //-dore
-        
+        [2100,izquierda],       //you
+        [1100,derecha],       //are
+        [400,derecha],       //all i
+        [600,abajo],       //long
+        [400,derecha],       //for
+        [700,izquierda],       //all
+        [600,arriba],       //i wor-
+        [800,derecha],       //-ship
+        [800,izquierda], /*and a- dore*/
+        [600,abajo] 
+        ]
         fsFlyMeToTheMoon.volume(0.25)
         fsFlyMeToTheMoon.play()
-        listaDeFlechas.forEach({k,v => self.tirarFlecha(k, v)})
+        //listaDeFlechas.forEach({k,v => self.tirarFlecha(k, v)})
   }
 }
 
