@@ -16,8 +16,10 @@ import tableroManager.*
   implementado 
 */
 object tablero{
+  var modalidad = ''
 
   method inicializar(){
+    game.clear()
     game.width(38)
     game.height(40)
     game.cellSize(16)
@@ -43,6 +45,18 @@ object tablero{
 
       self.inicializarFlechas(hipShop)
     }) 
+  }
+
+  method getModalidad(){
+    return modalidad
+  }
+
+  method nose(){
+    if (self.getModalidad() == 'facil'){
+      return facil.getCancion()
+    } else if (self.getModalidad() == 'normal'){
+      return normal.getCancion()
+    } else { return tutorial.getCancion()}
   }
 
   method menuReset() {		

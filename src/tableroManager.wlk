@@ -43,6 +43,10 @@ class Modalidades {
 
 	method agregarVisuales()
 
+	method getCancion() {
+		return cancion
+	}
+
 }
 
 object tutorial inherits Modalidades(cancion = hipShop){
@@ -55,6 +59,7 @@ object tutorial inherits Modalidades(cancion = hipShop){
 object facil inherits Modalidades(cancion = myBestFriend){
 
 	override method agregarVisuales() {
+		barraDeVida.inicializar()
 		game.addVisual(barraDeVida)
 	}
 }
@@ -62,6 +67,7 @@ object facil inherits Modalidades(cancion = myBestFriend){
 object normal inherits Modalidades(cancion = theSoundOfSilence){
 
 	override method agregarVisuales() {
+		barraDeVida.inicializar()
 		game.addVisual(barraDeVida)
 	}
 }
@@ -97,5 +103,26 @@ object musicaVictoria {
 object musicaDerrota {
 	method play (){
 		game.sound("perdisteMusica.mp3").play()
+	}
+}
+
+object pantallaDerrota{
+
+	method config () {
+		game.addVisual(derrotaPantalla)
+		musicaDerrota.play()
+
+			keyboard.r().onPressDo{
+				game.clear()
+				tablero.inicializarFlechas(tablero.nose())
+				facil.agregarVisuales()
+				}
+				
+				//game.removeVisual(derrotaPantalla)
+
+			keyboard.m().onPressDo{
+				//botonMenu.play() 
+				game.clear()
+				tablero.menuReset()}
 	}
 }
