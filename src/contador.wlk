@@ -3,12 +3,10 @@ import tablero.*
 object puntaje {
 	var property puntos = 0
 	var property textColor = "FFFFFF"
-	//var property dificultad = perfecto
 
 	method position() = game.at(25, 4)
 	
 	method text() = puntos.toString()
-	//method textColor() = color
   method asignarTipoDePuntaje(posicionDeFlecha) {
     self.sumarPuntos(100-20*posicionDeFlecha)
     if (posicionDeFlecha == 0) {
@@ -24,7 +22,6 @@ object puntaje {
 
 	method sumarPuntos(puntaje) {
 	  puntos += puntaje
-	//valor += dificultad.puntos()
 	}
 
 	method resetear(){

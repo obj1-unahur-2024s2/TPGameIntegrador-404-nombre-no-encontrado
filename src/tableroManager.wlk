@@ -80,10 +80,10 @@ object botonMenu {
 }
 
 object musicaMenu{
-var musica = game.sound("menuMusica.mp3")
+const musica = game.sound("menuMusica.mp3")
 
-	method play (){
-		musica = game.sound("menuMusica.mp3")
+	method play(){
+		//musica = game.sound("menuMusica.mp3")
 		musica.shouldLoop(true)
 		musica.volume(0.3)
 		musica.play()
@@ -108,7 +108,7 @@ object musicaDerrota {
 
 object pantallaDerrota{
 
-	method config () {
+	method config() {
 		game.addVisual(derrotaPantalla)
 		musicaDerrota.play()
 

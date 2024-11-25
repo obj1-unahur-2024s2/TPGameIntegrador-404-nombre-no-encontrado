@@ -37,7 +37,6 @@ class BotonFlecha {
     const flechas
 
     var imagenPresionada = ""
-    //"flecha-" + tipo + ".png"
 
     var posicionDeFlechaDetectada = 0
 
@@ -46,11 +45,8 @@ class BotonFlecha {
 
     // Método para manejar la acción de cambiar a la imagen en rojo cuando se presiona la tecla
     method presionarTecla() {
-        // Cambiar la imagen a la versión en azul
         imagenPresionada = "-presionada"
-        //registrar puntaje 
-        //flechas.lista().forEach({flecha => game.onCollideDo(flecha,{perfecto.sumarPuntos() flecha.resetearPosicion()})})
-        // Volver a la imagen original después de un corto tiempo
+
         game.schedule(300, { imagenPresionada = "" })
 
         self.detectarFlecha(flechas)
@@ -58,11 +54,8 @@ class BotonFlecha {
     }
 
     method detectarFlecha(listaDeFlechas) {
-      console.println("intenté detectar flecha")
       if (self.hayFlechaCerca(listaDeFlechas)) {
-        console.println("detectó flecha!")
         posicionDeFlechaDetectada = listaDeFlechas.min({f => f.position().y()}).position().y()
-        console.println("posicion detectada: " + posicionDeFlechaDetectada)
         puntaje.asignarTipoDePuntaje(posicionDeFlechaDetectada)
         listaDeFlechas.min({f => f.position().y()}).resetearPosicion()
       }
@@ -91,31 +84,3 @@ object derecha{
   method position() = izquierda.position().right(12)
   method nombre() = "derecha"
 }
-
-/*
-class DetectorFlecha{
-  const tipo //pasarle objeto de puntaje de contador.wlk
-  const flechas //pasarle la lista de flechas de su columna
-  const position
-  method image() = "transparente.png"
-  method position() = position
-  method detectar(){
-    flechas.lista().forEach({flecha => game.onCollideDo(flecha,{tipo.sumarPuntos() flecha.resetearPosicion()})}) //a falta de una forma mejor, chequea si alguna de las flechas lo colisiona, y si lo hace suma el puntaje y la resetea. despues en el game llamamos este método con un onPressDo()
-  }
-}
-
-class GrupoDetectores{
-  const flechas
-  const ejeX
-  const property detectores = []
-  method initialize(){
-    const excelente = new DetectorFlecha(tipo = excelente, position = game.at(ejeX,1), flechas = flechas)
-    const excelente2 = new DetectorFlecha(tipo = excelente, position = game.at(ejeX,-1), flechas = flechas)
-    const bien = new DetectorFlecha(tipo = bien, position = game.at(ejeX,2), flechas = flechas)
-    const bien2 = new DetectorFlecha(tipo = bien, position = game.at(ejeX,-2), flechas = flechas)
-    const ok = new DetectorFlecha(tipo = ok, position = game.at(ejeX,3), flechas = flechas)
-    const ok2 = new DetectorFlecha(tipo = ok, position = game.at(ejeX,-3), flechas = flechas)
-    detectores.addAll([excelente,excelente2,bien,bien2,ok,ok2])
-  }
-}
-*/

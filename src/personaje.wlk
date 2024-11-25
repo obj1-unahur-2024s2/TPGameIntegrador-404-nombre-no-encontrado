@@ -24,9 +24,10 @@ object barraDeVida{
   method perderVida() {
 	  if (game.hasVisual(self)){ //verifica que la barra de vida esté en el tablero, si lo está, perder vida
       vida = 0.max(vida - 10)
-    }if (vida <= 0) {
-          game.schedule(500, { => pantallaDerrota.config()} )
-        }
+    }
+    if (vida <= 0) {
+      game.schedule(500, {pantallaDerrota.config()} )
+    }
   }
 
   method sumarVida() {

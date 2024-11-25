@@ -1,7 +1,5 @@
 import flechas.*
 
-//estos podrían ser una sola clase, pero hgghhhhhh,,,,,,,, --Maty
-
 class FlechasIzquierda {
     const flecha1 = new Flecha(tipo = izquierda,id=1, position = game.at(0, 36))
     const flecha2 = new Flecha(tipo = izquierda,id=2, position = game.at(0, 36))
