@@ -114,65 +114,66 @@ object hipShop inherits Cancion{
   //Intente separarlo por tiempos
   method initialize(izquierda,arriba,abajo,derecha) {
       const fsHipShop = game.sound("Hip Shop.mp3")
-      const listaDeFlechas = new Dictionary()
-      listaDeFlechas.put(2500 + delay,abajo)
-      listaDeFlechas.put(3400 + delay,derecha)
-      listaDeFlechas.put(3700 + delay,arriba)
-      listaDeFlechas.put(4200 + delay,derecha)
-      listaDeFlechas.put(4600 + delay,abajo)
+      const listaDeFlechas = [
+        [2500, abajo],
+        [900, derecha],
+        [300, arriba],
+        [500, derecha],
+        [400, abajo],
 
-      listaDeFlechas.put(7100 + delay,izquierda)
-      listaDeFlechas.put(7300 + delay,abajo)
-      listaDeFlechas.put(7400 + delay,derecha)
+        [2500, izquierda],
+        [200, abajo],
+        [100, derecha],
 
-      listaDeFlechas.put(8300 + delay,izquierda)
-      listaDeFlechas.put(8700 + delay,abajo)
-      listaDeFlechas.put(9200 + delay,derecha)
-      listaDeFlechas.put(9600 + delay,abajo)
+        [900, izquierda],
+        [400, abajo],
+        [500, derecha],
+        [400, abajo],
 
-      listaDeFlechas.put(12400 + delay,arriba)
+        [2800, arriba],
 
-      listaDeFlechas.put(14500 + delay,izquierda)
-      listaDeFlechas.put(14700 + delay,arriba)
-      listaDeFlechas.put(14800 + delay,arriba)
-      listaDeFlechas.put(15300 + delay,derecha)
-      listaDeFlechas.put(15800 + delay,abajo)
+        [2100, izquierda],
+        [200, arriba],
+        [100, abajo],
+        [500, derecha],
+        [500, arriba],
 
-      listaDeFlechas.put(17300 + delay,izquierda)
-      listaDeFlechas.put(17800 + delay,izquierda)
-      listaDeFlechas.put(18200 + delay,abajo)
-      listaDeFlechas.put(18500 + delay,derecha)
-      listaDeFlechas.put(19000 + delay,derecha)
-      listaDeFlechas.put(19500 + delay,arriba)
+        [1500, izquierda],
+        [500, izquierda],
+        [400, abajo],
+        [300, derecha],
+        [500, derecha],
+        [500, arriba],
 
-      listaDeFlechas.put(24400 + delay,arriba)
-      listaDeFlechas.put(24600 + delay,derecha)
-      listaDeFlechas.put(24700 + delay,arriba)
-      listaDeFlechas.put(25200 + delay,abajo)
-      listaDeFlechas.put(25700 + delay,abajo)
+        [4900, arriba],
+        [200, derecha],
+        [100, arriba],
+        [500, abajo],
+        [500, abajo],
 
-      listaDeFlechas.put(27200 + delay,izquierda)
-      listaDeFlechas.put(27700 + delay,abajo)
-      listaDeFlechas.put(28100 + delay,izquierda)
-      listaDeFlechas.put(28400 + delay,derecha)
-      listaDeFlechas.put(28900 + delay,abajo)
-      listaDeFlechas.put(29400 + delay,arriba)
+        [1500, izquierda],
+        [500, abajo],
+        [400, derecha],
+        [300, izquierda],
+        [500, abajo],
+        [500, arriba],
 
-      listaDeFlechas.put(34300 + delay,derecha)
-      listaDeFlechas.put(34500 + delay,arriba)
-      listaDeFlechas.put(34600 + delay,izquierda)
+        [4900, derecha],
+        [200, arriba],
+        [100, izquierda],
 
-      listaDeFlechas.put(35600 + delay,derecha)
-      listaDeFlechas.put(35900 + delay,izquierda)
-      listaDeFlechas.put(36300 + delay,arriba)
-      listaDeFlechas.put(36800 + delay,arriba)
+        [1000, derecha],
+        [300, izquierda],
+        [400, arriba],
+        [500, arriba],
+        
+        [1200, izquierda],
+        [200, derecha],
+        [100, abajo],
+        [500, abajo],
 
-      listaDeFlechas.put(38000 + delay,izquierda)
-      listaDeFlechas.put(38200 + delay,derecha)
-      listaDeFlechas.put(38300 + delay,abajo)
-      listaDeFlechas.put(38800 + delay,abajo)
-
-      listaDeFlechas.put(39300 + delay,arriba)
+        [500, arriba]
+      ]
       
       fsHipShop.volume(0.25)
       fsHipShop.play()
