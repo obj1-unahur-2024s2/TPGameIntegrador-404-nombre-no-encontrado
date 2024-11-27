@@ -1,9 +1,8 @@
 import canciones.*
+import tablero.*
 import contador.*
 import flechas.*
-import listasDeFlechas.*
 import personaje.*
-import tablero.*
 
 class Pantalla{
 	var property image 

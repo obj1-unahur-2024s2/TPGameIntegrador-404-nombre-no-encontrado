@@ -1,20 +1,5 @@
 import tableroManager.*
 
-
-class Jugador {
-  const barraDeVida
-  
-  method perderVida() {
-    barraDeVida.perderVida()
-  }
-
-  method sumarVida() {
-    barraDeVida.sumarVida()
-  }
-
-  method controles(){}
-}
-
 object barraDeVida{
   var vida = 100
 	method position() = game.at(15,0)

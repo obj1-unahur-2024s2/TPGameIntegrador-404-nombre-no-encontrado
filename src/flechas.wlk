@@ -26,7 +26,7 @@ class Flecha{
 
   method resetearPosicion(){
     game.removeTickEvent(id)
-    position = game.at(position.x(),game.height() + 1)
+    position = game.at(position.x(),game.height())
   }
 }
 

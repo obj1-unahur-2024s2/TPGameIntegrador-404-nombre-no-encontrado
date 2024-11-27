@@ -1,10 +1,9 @@
 import wollok.game.*
-import contador.*
+import tableroManager.*
+import canciones.*
 import flechas.*
 import listasDeFlechas.*
-import canciones.*
-import personaje.*
-import tableroManager.*
+import contador.*
 
 
 object tablero{

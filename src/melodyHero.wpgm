@@ -1,10 +1,4 @@
-import wollok.game.*
-
 import tablero.*
-
-import flechas.*
-
-import contador.*
 
 program melodyHero{
 	tablero.inicializar()

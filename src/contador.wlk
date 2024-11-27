@@ -1,5 +1,3 @@
-import tablero.*
-
 object puntaje {
 	var property puntos = 0
 	var property textColor = "FFFFFF"
