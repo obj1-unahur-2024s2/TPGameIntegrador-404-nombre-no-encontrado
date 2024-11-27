@@ -2,7 +2,7 @@
 import tableroManager.*
 class Cancion{
   const cancion
-  const delay = 0 //constante para sincronizar las canciones con las flechas. Esto se logra aplicando un delay a la canción al momento de reproducirla
+  const delay = 1800 //constante para sincronizar las canciones con las flechas. Esto se logra aplicando un delay a la canción al momento de reproducirla
   method tirarFlecha(pausa, flecha){
     game.schedule(pausa,{flecha.desplazarFlecha()})
   }
