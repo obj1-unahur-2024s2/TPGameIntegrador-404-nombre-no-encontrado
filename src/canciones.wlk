@@ -1,29 +1,42 @@
 // src/canciones.wlk
+import tableroManager.*
 class Cancion{
-    method initialize()
-    const delay = 0
-    method tirarFlecha(pausa, flecha){
-        game.schedule(pausa,{flecha.desplazarFlecha()})
-    }
+  const cancion
+  const delay = 0 //constante para sincronizar las canciones con las flechas. Esto se logra aplicando un delay a la canción al momento de reproducirla
+  method tirarFlecha(pausa, flecha){
+    game.schedule(pausa,{flecha.desplazarFlecha()})
+  }
 
-    method reproducir(lista, posicion){
-      if(posicion <= lista.size()){
-        var tiempo = lista[posicion][0]
-        var flecha = lista[posicion][1]
-        game.schedule(tiempo,{
-          flecha.desplazarFlecha()
-          self.reproducir(lista, posicion+1)
-        })
-      }
-      else{
-        //lógica de ganaste y esas cosas
-      }
+  method reproducir(lista, posicion){
+    console.println(posicion <= lista.size())
+    if(posicion <= lista.size()){
+      const elementoActual = lista.get(posicion)
+      console.println(elementoActual)
+      const tiempo = elementoActual.get(0)
+      const flecha = elementoActual.get(1)
+      game.schedule(tiempo,{
+        flecha.desplazarFlecha()
+        console.println("intenté tirar flecha")
+        self.reproducir(lista, posicion+1)
+      })
     }
+    else{
+      pantallaVictoria.config()
+    }
+  }
+
+  method reproducir(){
+    cancion.sound().volume(0.25)
+    game.schedule(delay,{cancion.sound().play()})
+    console.println("intenté reproducir cancion")
+    self.reproducir(cancion.listaDeFlechas(),0)
+  }
 }
-object flyMeToTheMoon inherits Cancion{
+object flyMeToTheMoon{
+  const property sound = game.sound("Fly Me To The Moon.mp3")
+  const property listaDeFlechas = []
     method initialize(izquierda,arriba,abajo,derecha){
-        const fsFlyMeToTheMoon = game.sound("Fly Me To The Moon.mp3")
-        const listaDeFlechas = [
+        listaDeFlechas.addAll([
         [7800,arriba],          /*fly*/
         [600,derecha],         //me
         [500,izquierda],       //to
@@ -83,38 +96,17 @@ object flyMeToTheMoon inherits Cancion{
         [800,derecha],       //-ship
         [800,izquierda], /*and a- dore*/
         [600,abajo] 
-        ]
-        fsFlyMeToTheMoon.volume(0.25)
-        fsFlyMeToTheMoon.play()
-        //listaDeFlechas.forEach({k,v => self.tirarFlecha(k, v)})
+        ])
   }
 }
 
-object billieJean inherits Cancion{
-  //posible implementacion de canciones, va a ser una banda --Maty
-  method initialize(izq,arr,abj,der){ 
-    const mjBillieJean = game.sound("mj-billie-jean.mp3")
-    mjBillieJean.volume(0.25) 
-    mjBillieJean.play()
-    game.schedule(1200,{ 
-      game.schedule(4150,{arr.desplazarFlecha()})
-      game.schedule(4340,{abj.desplazarFlecha()})
-      game.schedule(4680,{der.desplazarFlecha()})
-      game.schedule(4940,{arr.desplazarFlecha()})
-      game.schedule(5180,{izq.desplazarFlecha()})
-      game.schedule(5460,{der.desplazarFlecha()})
-      game.schedule(5700,{abj.desplazarFlecha()})
-      game.schedule(5960,{der.desplazarFlecha()})
-    })
-  }
-}
-
-object hipShop inherits Cancion{
+object hipShop {
   //Siento que esta es un buen tutorial o Facil
   //Intente separarlo por tiempos
+  const property sound = game.sound("Hip Shop.mp3")
+  const property listaDeFlechas = []
   method initialize(izquierda,arriba,abajo,derecha) {
-      const fsHipShop = game.sound("Hip Shop.mp3")
-      const listaDeFlechas = [
+      listaDeFlechas.addAll([
         [2500, abajo],
         [900, derecha],
         [300, arriba],
@@ -173,21 +165,15 @@ object hipShop inherits Cancion{
         [500, abajo],
 
         [500, arriba]
-      ]
-      
-      fsHipShop.volume(0.25)
-      fsHipShop.play()
-      listaDeFlechas.forEach({k,v => self.tirarFlecha(k, v)})
-
+      ])
     }
-
-
 }
 
-object theSoundOfSilence inherits Cancion {
+object theSoundOfSilence{
+  const property sound = game.sound("The Sound of Silence.mp3")
+  const property listaDeFlechas = []
   method initialize(izquierda,arriba,abajo,derecha) {
-    const fsTheSoundOfSilence = game.sound("The Sound of Silence.mp3")
-    const listaDeFlechas = [
+    listaDeFlechas.addAll([
       [10600, arriba],
       [800, abajo],
       [700, arriba],
@@ -375,19 +361,15 @@ object theSoundOfSilence inherits Cancion {
       [400, abajo], //SOUUUUUUUUND
       [5900, izquierda], //OFFF
       [1200, abajo]// SIIIIIIILEEEEEEEEENNNNNCEEEEEE
-    ]
-
-    fsTheSoundOfSilence.volume(0.25)
-    fsTheSoundOfSilence.play()
-    listaDeFlechas.forEach({k,v => self.tirarFlecha(k, v)})
-    
+    ])
   }
 }
 
-object myBestFriend inherits Cancion {
+object myBestFriend{
+  const property sound = game.sound("My Best Friend.mp3")
+  const property listaDeFlechas = []
   method initialize(izquierda,arriba,abajo,derecha) {
-    const fsMyBestFriend = game.sound("My Best Friend.mp3")
-    const listaDeFlechas = [
+    listaDeFlechas.addAll([
       [1800, abajo], 
       [700, derecha],
       [600, arriba],
@@ -435,12 +417,6 @@ object myBestFriend inherits Cancion {
       [1200, arriba],
       [100, abajo],
       [0, derecha]
-    ]
-
-    fsMyBestFriend.volume(0.25)
-    fsMyBestFriend.play()
-    listaDeFlechas.forEach({k,v => self.tirarFlecha(k, v)})
-    
+    ])   
   }
-
 }  

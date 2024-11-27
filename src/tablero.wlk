@@ -113,6 +113,9 @@ object tablero{
     keyboard.d().onPressDo({botonDerecha.presionarTecla()})
 
     cancion.initialize(flechasIzquierda,flechasArriba,flechasAbajo,flechasDerecha)
+    console.println("inicializé cancion")
+    const cancionActual = new Cancion (cancion = cancion)
+    cancionActual.reproducir()
   }
     
 }

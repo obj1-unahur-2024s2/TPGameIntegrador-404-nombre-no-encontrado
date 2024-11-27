@@ -121,8 +121,24 @@ object pantallaDerrota{
 				//game.removeVisual(derrotaPantalla)
 
 			keyboard.m().onPressDo{
-				//botonMenu.play() 
+				botonMenu.play() 
 				game.clear()
-				tablero.menuReset()}
+				tablero.menuReset()
+				game.removeVisual(derrotaPantalla)
+			}
 	}
+}
+
+object pantallaVictoria{
+	method config() {
+		game.addVisual(victoriaPantalla)
+		musicaVictoria.play()
+
+		//keyboard.r().onPressDo{
+		//	botonMenu.play() tablero.inicializarFlechas(cancion) game.removeVisual(victoriaPantalla)
+		//}
+		keyboard.m().onPressDo{
+			botonMenu.play() tablero.menuReset() game.removeVisual(victoriaPantalla)
+		}
+    }
 }
