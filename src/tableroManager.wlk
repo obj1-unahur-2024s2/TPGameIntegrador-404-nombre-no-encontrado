@@ -111,11 +111,11 @@ object pantallaDerrota{
 		game.addVisual(derrotaPantalla)
 		musicaDerrota.play()
 
-			keyboard.r().onPressDo{
-				game.clear()
-				tablero.inicializarFlechas(tablero.nose())
-				facil.agregarVisuales()
-				}
+			//keyboard.r().onPressDo{
+			//	game.clear()
+			//	tablero.inicializarFlechas(tablero.nose())
+			//	facil.agregarVisuales()
+			//	}
 				
 				//game.removeVisual(derrotaPantalla)
 
