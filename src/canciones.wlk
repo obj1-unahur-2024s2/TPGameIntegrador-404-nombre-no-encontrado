@@ -8,7 +8,7 @@ class Cancion{
   }
 
   method reproducir(lista, posicion){
-    console.println(posicion < lista.size())
+    console.println(lista.size())
     if(posicion < lista.size()){
       const elementoActual = lista.get(posicion)
       console.println(posicion)
@@ -20,8 +20,14 @@ class Cancion{
         self.reproducir(lista, posicion+1)
       })
     }
-    else{
-      pantallaVictoria.config()
+    else{ //caso borde
+      const ultimaFlecha = lista.last()
+      const tiempo = ultimaFlecha.get(0)
+      const flecha = ultimaFlecha.get(1)
+      game.schedule(tiempo,{
+        flecha.desplazarFlecha()
+        game.schedule(delay + 1000,{if(not game.hasVisual(derrotaPantalla)){pantallaVictoria.config()}})
+      })
     }
   }
 
