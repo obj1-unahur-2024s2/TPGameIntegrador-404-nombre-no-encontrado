@@ -8,10 +8,10 @@ class Cancion{
   }
 
   method reproducir(lista, posicion){
-    console.println(posicion <= lista.size())
-    if(posicion <= lista.size()){
+    console.println(posicion < lista.size())
+    if(posicion < lista.size()){
       const elementoActual = lista.get(posicion)
-      console.println(elementoActual)
+      console.println(posicion)
       const tiempo = elementoActual.get(0)
       const flecha = elementoActual.get(1)
       game.schedule(tiempo,{
