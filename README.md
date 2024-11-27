@@ -13,7 +13,7 @@ El juego que queríamos proponer era un rhythm game (juego de ritmo), basado en 
 
 ## Capturas
 
-![image](https://github.com/user-attachments/assets/74193243-2f17-4e12-8ae3-faf10bf28d9e)
+![captura de pantalla del tablero, con flechas cayendo](https://github.com/user-attachments/assets/74193243-2f17-4e12-8ae3-faf10bf28d9e)
 
 
 
@@ -35,4 +35,4 @@ Presiona las teclas al ritmo de la canción, acumula puntos depediendo de tu pre
 
 - Curso/Facultad: Programación con Objetos I - UNaHur
 - Versión de wollok: 0.2.9
-- Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado
+- Una vez terminado, no tenemos problemas en que el repositorio sea público
