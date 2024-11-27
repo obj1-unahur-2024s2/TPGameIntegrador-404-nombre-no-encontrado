@@ -9,6 +9,9 @@ object puntaje {
 	method text() = puntos.toString()
   method asignarTipoDePuntaje(posicionDeFlecha) {
     self.sumarPuntos(100-20*posicionDeFlecha)
+    cartelPuntaje.aparecer(posicionDeFlecha.abs())
+
+    /*
     if (posicionDeFlecha == 0) {
       perfecto.aparecer()
     } else if(posicionDeFlecha.abs() == 1) {
@@ -18,6 +21,7 @@ object puntaje {
     } else if(posicionDeFlecha.abs() == 3) {
       ok.aparecer()
     }
+    */
   }
 
 	method sumarPuntos(puntaje) {
@@ -31,27 +35,13 @@ object puntaje {
 }
 
 
-class TipoDePuntaje {
-  //const puntos
-  method image()
+object cartelPuntaje {
+  var tipoDeCartel = 0
+  method image() = "cartel-" + tipoDeCartel + ".png"
   method position() = game.at(16, 8)
-  method aparecer() {
+  method aparecer(posicionDeFlecha) {
+    tipoDeCartel = posicionDeFlecha
     game.addVisual(self)
     game.schedule(500, {game.removeVisual(self)})
   }
-}
-object perfecto inherits TipoDePuntaje() {
-  override method image() = "cartel-perfecto.png"
-}
-
-object excelente inherits TipoDePuntaje() {
-  override method image() = "cartel-excelente.png"
-}
-
-object bien inherits TipoDePuntaje() {
-  override method image() = "cartel-bien.png"
-}
-
-object ok inherits TipoDePuntaje() {
-  override method image() = "cartel-ok.png"
 }
