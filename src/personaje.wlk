@@ -6,12 +6,14 @@ object barraDeVida{
 	
   method image() = "barraDeVida"+ vida +".png"
 
+  method vida() = vida
+
   method perderVida() {
-	  if (game.hasVisual(self)){ //verifica que la barra de vida esté en el tablero, si lo está, perder vida
+	  if (game.hasVisual(self) and vida > 0){ //verifica que la barra de vida esté en el tablero, si lo está, perder vida
       vida = 0.max(vida - 10)
     }
-    if (vida <= 0) {
-      game.schedule(500, {pantallaDerrota.config()} )
+    else{
+      game.schedule(500, {if(not game.hasVisual(derrotaPantalla)){pantallaDerrota.config()}})//agregué un check par aque no intente agregar la pantalla si ya está en el tablero
     }
   }
 

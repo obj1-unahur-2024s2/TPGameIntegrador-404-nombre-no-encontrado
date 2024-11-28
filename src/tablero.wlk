@@ -16,26 +16,8 @@ object tablero{
     game.cellSize(16)
     game.title("Melody Hero")
     game.boardGround("fondo-arcade.png")
-    
     game.schedule (20,{musicaMenu.play()}) //musica del menu
     game.addVisual(pantallaInicio)    // Añadir la pantalla de inicio al juego
-
-
-    //APRETAR enter Y EMPIEZA EL JUEGO
-    keyboard.enter().onPressDo({
-      botonMenu.play()
-      game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
-      game.addVisual(modalidadesPantalla)
-      self.menuModalidades()
-    
-
-    })
-
-    keyboard.l().onPressDo({
-      game.removeVisual(pantallaInicio)  // Quitar pantalla de inicio
-
-      self.inicializarFlechas(hipShop)
-    }) 
   }
 
   method getModalidad(){
@@ -51,7 +33,8 @@ object tablero{
   }
 
   method menuReset() {		
-		  self.inicializar()
+		game.schedule (20,{musicaMenu.play()}) //musica del menu
+    game.addVisual(pantallaInicio)    // Añadir la pantalla de inicio al juego
   }
 
   method menuModalidades(){

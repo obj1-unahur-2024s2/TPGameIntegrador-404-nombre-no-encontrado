@@ -1,5 +1,7 @@
+import contador.*
 // src/canciones.wlk
 import tableroManager.*
+import src.personaje.barraDeVida
 class Cancion{
   const cancion
   const delay = 1800 //constante para sincronizar las canciones con las flechas. Esto se logra aplicando un delay a la canción al momento de reproducirla
@@ -8,7 +10,7 @@ class Cancion{
   }
 
   method reproducir(lista, posicion){
-    console.println(lista.size())
+    if(barraDeVida.vida() > 0){
     if(posicion < lista.size()){
       const elementoActual = lista.get(posicion)
       console.println(posicion)
@@ -29,8 +31,11 @@ class Cancion{
         game.schedule(delay + 1000,{if(not game.hasVisual(derrotaPantalla)){pantallaVictoria.config()}})
       })
     }
+    }
+    else{
+      cancion.sound().stop()
+    }
   }
-
   method reproducir(){
     cancion.sound().volume(0.25)
     game.schedule(delay,{cancion.sound().play()})

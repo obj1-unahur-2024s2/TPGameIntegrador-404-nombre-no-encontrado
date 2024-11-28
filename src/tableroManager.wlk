@@ -9,7 +9,19 @@ class Pantalla{
 	const property position = game.origin()
 }
 
-const pantallaInicio = new Pantalla(image = "portadaInicio.jpg")
+object pantallaInicio inherits Pantalla(image ="portadaInicio.jpg"){
+	method initialize(){
+	keyboard.enter().onPressDo({
+	if(game.hasVisual(self)){
+	  botonMenu.play()
+      game.removeVisual(self)
+      game.addVisual(modalidadesPantalla)
+      tablero.menuModalidades()
+	}
+    })
+	}
+}
+
 const modalidadesPantalla = new Pantalla(image = "modalidadJuego.jpg")
 const derrotaPantalla = new Pantalla(image = "pantallaPerdiste.png")
 const victoriaPantalla = new Pantalla(image = "pantallaGanaste.png")
@@ -106,7 +118,6 @@ object musicaDerrota {
 }
 
 object pantallaDerrota{
-
 	method config() {
 		game.addVisual(derrotaPantalla)
 		musicaDerrota.play()
@@ -120,10 +131,10 @@ object pantallaDerrota{
 				//game.removeVisual(derrotaPantalla)
 
 			keyboard.m().onPressDo{
-				botonMenu.play() 
-				game.clear()
-				tablero.menuReset()
-				game.removeVisual(derrotaPantalla)
+			  botonMenu.play() 
+			  game.clear()
+			  tablero.menuReset()
+			  game.removeVisual(derrotaPantalla)
 			}
 	}
 }
