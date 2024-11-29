@@ -9,7 +9,7 @@ class Pantalla{
 	const property position = game.origin()
 }
 
-object pantallaInicio inherits Pantalla(image ="portadaInicio.jpg"){
+object pantallaInicio inherits Pantalla(image ="portadaInicio.gif"){
 	method initialize(){
 	keyboard.enter().onPressDo({
 	if(game.hasVisual(self)){
