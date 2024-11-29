@@ -12,12 +12,10 @@ class Pantalla{
 object pantallaInicio inherits Pantalla(image ="portadaInicio.gif"){
 	method initialize(){
 	keyboard.enter().onPressDo({
-	if(game.hasVisual(self)){
 	  botonMenu.play()
       game.removeVisual(self)
       game.addVisual(modalidadesPantalla)
       tablero.menuModalidades()
-	}
     })
 	}
 }
