@@ -58,14 +58,14 @@ class Modalidades {
 
 }
 
-object tutorial inherits Modalidades(cancion = hipShop){
+object tutorial inherits Modalidades(cancion = myBestFriend){
 
 	override method agregarVisuales() {
 		game.addVisual(tutorialPantalla)
 	}
 }
 
-object facil inherits Modalidades(cancion = myBestFriend){
+object facil inherits Modalidades(cancion = hipShop){
 
 	override method agregarVisuales() {
 		barraDeVida.inicializar()
