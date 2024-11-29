@@ -18,6 +18,13 @@ object tablero{
     game.boardGround("fondo-arcade.png")
     game.schedule (20,{musicaMenu.play()}) //musica del menu
     game.addVisual(pantallaInicio)    // Añadir la pantalla de inicio al juego
+    
+    keyboard.enter().onPressDo({
+	    botonMenu.play()
+      game.removeVisual(pantallaInicio)
+      game.addVisual(modalidadesPantalla)
+      self.menuModalidades()
+    })
   }
 
   method getModalidad(){
@@ -33,8 +40,7 @@ object tablero{
   }
 
   method menuReset() {		
-		game.schedule (20,{musicaMenu.play()}) //musica del menu
-    game.addVisual(pantallaInicio)    // Añadir la pantalla de inicio al juego
+		self.inicializar()
   }
 
   method menuModalidades(){

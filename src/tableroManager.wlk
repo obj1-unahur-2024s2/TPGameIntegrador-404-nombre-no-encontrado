@@ -9,17 +9,7 @@ class Pantalla{
 	const property position = game.origin()
 }
 
-object pantallaInicio inherits Pantalla(image ="portadaInicio.gif"){
-	method initialize(){
-	keyboard.enter().onPressDo({
-	  botonMenu.play()
-      game.removeVisual(self)
-      game.addVisual(modalidadesPantalla)
-      tablero.menuModalidades()
-    })
-	}
-}
-
+const pantallaInicio = new Pantalla(image ="portadaInicio.gif")
 const modalidadesPantalla = new Pantalla(image = "modalidadJuego.jpg")
 const derrotaPantalla = new Pantalla(image = "pantallaPerdiste.png")
 const victoriaPantalla = new Pantalla(image = "pantallaGanaste.png")
